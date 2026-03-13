@@ -15,7 +15,7 @@ export function Navbar() {
       <div className="hidden items-center space-x-8 md:flex">
         <Link href="/" className="text-sm font-medium text-white/90 hover:text-white">Home</Link>
         <Link href="/courses" className="text-sm font-medium text-white/90 hover:text-white">Courses</Link>
-        <Link href="/careers" className="text-sm font-medium text-white/90 hover:text-white">Careers</Link>
+        <Link href="/exams" className="text-sm font-medium text-white/90 hover:text-white">Exams</Link>
         <Link href="/blog" className="text-sm font-medium text-white/90 hover:text-white">Blog</Link>
         <Link href="/about" className="text-sm font-medium text-white/90 hover:text-white">About Us</Link>
       </div>

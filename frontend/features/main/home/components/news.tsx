@@ -2,25 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useBlogs } from "../../blog/hooks/useBlog";
+import { getImageUrl } from "@/lib/image.utils";
+import { Loader2 } from "lucide-react";
 
 export function News() {
-  const smallNews = [
-    {
-      title: "Class Technologies Inc. Closes $30 Million Series A Financing to Meet High Demand",
-      tag: "PRESS RELEASE",
-      image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2670&auto=format&fit=crop",
-    },
-    {
-      title: "Zoom's earliest investors are betting millions on a better Zoom for schools",
-      tag: "NEWS",
-      image: "https://images.unsplash.com/photo-1543269664-7eef42226a21?q=80&w=2670&auto=format&fit=crop",
-    },
-    {
-      title: "Former Blackboard CEO Raises $16M to Bring LMS Features to Zoom Classrooms",
-      tag: "NEWS",
-      image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2670&auto=format&fit=crop",
-    },
-  ];
+  const { data: blogsData, isLoading } = useBlogs({ limit: 4 });
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center py-20">
+        <Loader2 className="h-10 w-10 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  const blogs = blogsData?.data || [];
+  const mainBlog = blogs[0];
+  const otherBlogs = blogs.slice(1);
 
   return (
     <section className="py-24 bg-white">
@@ -32,48 +31,63 @@ export function News() {
 
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Main Big News */}
-          <div className="w-full lg:w-1/2 group">
-            <div className="relative aspect-[16/10] rounded-3xl overflow-hidden mb-8 shadow-lg">
-              <Image 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop" 
-                alt="Main News" 
-                fill 
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <span className="absolute left-6 bottom-6 rounded-full bg-cyan-400 px-6 py-2 text-xs font-bold text-white uppercase tracking-widest">News</span>
+          {mainBlog && (
+            <div className="w-full lg:w-1/2 group">
+              <div className="relative aspect-[16/10] rounded-3xl overflow-hidden mb-8 shadow-lg">
+                <Image 
+                  src={getImageUrl(mainBlog.imageCover, 'blogs')} 
+                  alt={mainBlog.title} 
+                  fill 
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute left-6 bottom-6 rounded-full bg-cyan-400 px-6 py-2 text-xs font-bold text-white uppercase tracking-widest">
+                    {mainBlog.category?.name || 'News'}
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors mb-4 line-clamp-2">
+                {mainBlog.title}
+              </h3>
+              <p className="text-gray-500 leading-relaxed mb-6 line-clamp-3">
+                {mainBlog.description}
+              </p>
+              <Link href={`/blog/${mainBlog._id}`} className="text-primary font-bold underline underline-offset-4 hover:opacity-80 cursor-pointer">Read more</Link>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors mb-4">
-              Class adds $30 million to its balance sheet for a Zoom-friendly edtech solution
-            </h3>
-            <p className="text-gray-500 leading-relaxed mb-6">
-              Class, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
-            </p>
-            <Link href="/" className="text-primary font-bold underline underline-offset-4 hover:opacity-80">Read more</Link>
-          </div>
+          )}
 
           {/* Smaller News Side */}
           <div className="w-full lg:w-1/2 space-y-8">
-            {smallNews.map((news, idx) => (
-              <div key={idx} className="flex gap-6 group">
+            {otherBlogs.map((news) => (
+              <div key={news._id} className="flex gap-6 group">
                  <div className="relative h-32 w-48 shrink-0 rounded-2xl overflow-hidden shadow-md">
                    <Image 
-                     src={news.image} 
+                     src={getImageUrl(news.imageCover, 'blogs')} 
                      alt={news.title} 
                      fill 
                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                    />
-                   <span className="absolute right-2 bottom-2 rounded-full bg-cyan-400/90 px-3 py-1 text-[8px] font-bold text-white uppercase tracking-widest">{news.tag}</span>
+                   <span className="absolute right-2 bottom-2 rounded-full bg-cyan-400/90 px-3 py-1 text-[8px] font-bold text-white uppercase tracking-widest">
+                       {news.category?.name || 'News'}
+                   </span>
                  </div>
                  <div className="flex flex-col justify-center">
-                    <h4 className="font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors mb-3">
+                    <h4 className="font-bold text-gray-900 leading-snug group-hover:text-primary transition-colors mb-3 line-clamp-2">
                       {news.title}
                     </h4>
                     <p className="text-xs text-gray-500 line-clamp-2">
-                       Class Technologies Inc., the company that created Class,...
+                       {news.description}
                     </p>
+                    <Link href={`/blog/${news._id}`} className="mt-2 text-primary text-xs font-bold hover:underline cursor-pointer">
+                        Read more
+                    </Link>
                  </div>
               </div>
             ))}
+            
+            {blogs.length === 0 && (
+                <div className="h-full flex items-center justify-center bg-gray-50 rounded-3xl border border-dashed border-gray-200">
+                    <p className="text-gray-400">No news articles found.</p>
+                </div>
+            )}
           </div>
         </div>
       </div>

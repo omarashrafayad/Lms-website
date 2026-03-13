@@ -19,6 +19,7 @@ import lessonRoute from './routes/lessonRoute'
 import examRoute from './routes/examRoute'
 import resultRoute from './routes/resultRoute'
 import blogRoute from './routes/blogRoute'
+import membershipRoute from './routes/membershipRoute'
 import cors from 'cors'
 
 import globalError from './middlewares/errorMiddleware'
@@ -67,6 +68,7 @@ app.use('/api/v1/lessons', lessonRoute);
 app.use('/api/v1/exams', examRoute);
 app.use('/api/v1/results', resultRoute);
 app.use('/api/v1/blogs', blogRoute);
+app.use('/api/v1/membership-plans', membershipRoute);
 
 app.all(/.*/, (req: Request, res: Response, next: NextFunction) => {
   next(new ApiError(`Can't find this route: ${req.originalUrl}`, 404));

@@ -1,14 +1,14 @@
-import { Navbar } from "@/components/landing/navbar";
-import { Hero } from "@/components/landing/hero";
-import { Stats } from "@/components/landing/stats";
-import { CloudSoftware } from "@/components/landing/cloud-software";
-import { WhatIsTOTC } from "@/components/landing/what-is-totc";
-import { ClassroomExperience } from "@/components/landing/classroom-experience";
-import { Features } from "@/components/landing/features";
-import { ExploreCourse } from "@/components/landing/explore-course";
-import { Testimonial } from "@/components/landing/testimonial";
-import { News } from "@/components/landing/news";
-import { Footer } from "@/components/landing/footer";
+import { Navbar } from "@/features/main/home/components/navbar";
+import { Hero } from "@/features/main/home/components/hero";
+import { Stats } from "@/features/main/home/components/stats";
+import { CloudSoftware } from "@/features/main/home/components/cloud-software";
+import { WhatIsTOTC } from "@/features/main/home/components/what-is-totc";
+import { ClassroomExperience } from "@/features/main/home/components/classroom-experience";
+import { Features } from "@/features/main/home/components/features";
+import { ExploreCourse } from "@/features/main/home/components/explore-course";
+import { Testimonial } from "@/features/main/home/components/testimonial";
+import { News } from "@/features/main/home/components/news";
+import { Footer } from "@/features/main/home/components/footer";
 
 export default function Home() {
   return (

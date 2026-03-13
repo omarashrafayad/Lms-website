@@ -14,6 +14,7 @@ export interface IUser extends Document {
     passwordResetVerified: Boolean | undefined,
     role: string,
     active: boolean,
+    membershipPlan?: Types.ObjectId;
     wishlist: Types.ObjectId[];
     addresses: [{
         alias?: string;
@@ -59,6 +60,10 @@ const userSchema = new mongoose.Schema<IUser>({
     active: {
         type: Boolean,
         default: true,
+    },
+    membershipPlan: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'MembershipPlan',
     },
     wishlist: [
         {

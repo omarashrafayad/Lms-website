@@ -1,75 +1,86 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { Eye, EyeOff } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-
-interface LoginFormProps {
-  onRegisterClick: () => void;
-}
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginFormData, loginSchema } from "@/features/auth/schemas/auth.schema";
+import { useRouter } from "next/navigation";
+import { Loader2 } from "lucide-react";
+import { loginAction } from "@/features/auth/api/auth";
+import { toast } from "sonner";
+import { Form } from "@/components/ui/form";
+import { UniInput } from "@/components/shared/UniInput";
 
 export function LoginForm() {
-  const [showPassword, setShowPassword] = useState(false);
+    const router = useRouter();
 
-  return (
-    <form className="space-y-6">
-      <div className="space-y-2">
-        <Label htmlFor="username" className="text-sm font-semibold text-gray-700">
-          User name
-        </Label>
-        <Input
-          id="username"
-          placeholder="Enter your User name"
-          className="h-12 rounded-full border-secondary/50 focus-visible:ring-primary"
-        />
-      </div>
+    const form = useForm<loginFormData>({
+        resolver: zodResolver(loginSchema),
+        mode: "all",
+        defaultValues: {
+            email: "",
+            password: "",
+        },
+    });
 
-      <div className="space-y-2">
-        <Label htmlFor="password" className="text-sm font-semibold text-gray-700">
-          Password
-        </Label>
-        <div className="relative">
-          <Input
-            id="password"
-            type={showPassword ? "text" : "password"}
-            placeholder="Enter your Password"
-            className="h-12 rounded-full border-secondary/50 pr-12 focus-visible:ring-primary"
-          />
-          <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-          >
-            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-          </button>
-        </div>
-      </div>
+    const {
+        handleSubmit,
+        control,
+        formState: { isSubmitting },
+    } = form;
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <Checkbox id="remember" className="border-secondary/50 data-[state=checked]:bg-primary" />
-          <Label
-            htmlFor="remember"
-            className="text-xs font-medium leading-none text-gray-500 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            Remember me
-          </Label>
-        </div>
-        <Link
-          href="/forgot-password"
-          className="text-xs font-semibold text-gray-500 hover:text-primary"
-        >
-          Forgot Password ?
-        </Link>
-      </div>
+    const onSubmit = async (data: loginFormData) => {
+        try {
+            const res = await loginAction(data);
+            if (res?.success) {
+                toast.success("Login successful!");
+                router.push("/");
+                router.refresh();
+            } else {
+                toast.error(res?.error || "Login failed. Please try again.");
+            }
+        } catch (error) {
+            toast.error("An unexpected error occurred. Please try again later.");
+        }
+    };
 
-      <Button className="h-12 w-full rounded-full bg-primary text-white shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl active:scale-[0.98]">
-        Login
-      </Button>
-    </form>
-  );
+    return (
+        <Form {...form}>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <UniInput
+                    control={control}
+                    name="email"
+                    label="Email Address"
+                    placeholder="Enter your email"
+                    type="email"
+                    required
+                />
+
+                <UniInput
+                    control={control}
+                    name="password"
+                    label="Password"
+                    placeholder="Enter your password"
+                    type="password"
+                    required
+                />
+
+                <Button
+                    type="submit"
+                    className="h-12 w-full rounded-full bg-primary text-white shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl active:scale-[0.98]"
+                    disabled={isSubmitting}
+                >
+                    {isSubmitting ? (
+                        <>
+                            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                            Logging in...
+                        </>
+                    ) : (
+                        "Login"
+                    )}
+                </Button>
+            </form>
+        </Form>
+    );
 }

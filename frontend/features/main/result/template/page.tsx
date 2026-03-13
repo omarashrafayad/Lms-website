@@ -1,16 +1,51 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, XCircle, RotateCcw, Home, Award, ChevronRight, Star } from "lucide-react";
+import { CheckCircle2, XCircle, RotateCcw, Home, Award, ChevronRight, Star, Loader2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useMyResults } from "../hooks/useResult";
 
 export default function ResultPage() {
+  const { data: resultsData, isLoading } = useMyResults();
+
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  const results = resultsData?.data || [];
+  const latestResult = results[0];
+
+  if (!latestResult) {
+    return (
+        <div className="bg-slate-50 min-h-screen py-24 flex items-center justify-center">
+             <div className="text-center space-y-6">
+                <div className="mx-auto h-24 w-24 bg-white rounded-3xl shadow-xl flex items-center justify-center text-slate-300">
+                    <Award size={48} />
+                </div>
+                <h1 className="text-2xl font-bold text-slate-800">No results found</h1>
+                <p className="text-slate-500">You haven't taken any exams yet.</p>
+                <Link href="/exams">
+                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl h-12 px-8 cursor-pointer shadow-lg shadow-primary/20">
+                        Go to Exams
+                    </Button>
+                </Link>
+             </div>
+        </div>
+    );
+  }
+
   const stats = [
-    { label: "Correct Answers", value: "22", icon: <CheckCircle2 className="text-emerald-500" />, sub: "/ 25 Questions" },
-    { label: "Points Earned", value: "880", icon: <Award className="text-amber-500" />, sub: "/ 1000 Total" },
-    { label: "Wrong Answers", value: "3", icon: <XCircle className="text-rose-500" />, sub: "Check mistakes" },
+    { label: "Correct Answers", value: latestResult.correctAnswers.toString(), icon: <CheckCircle2 className="text-emerald-500" />, sub: `/ ${latestResult.totalQuestions} Questions` },
+    { label: "Points Earned", value: latestResult.score.toString(), icon: <Award className="text-amber-500" />, sub: `/ 100 Total` },
+    { label: "Wrong Answers", value: latestResult.wrongAnswers.toString(), icon: <XCircle className="text-rose-500" />, sub: "Check mistakes" },
   ];
+
+  const isPassed = latestResult.status === "pass";
 
   return (
     <div className="bg-slate-50 min-h-screen py-24">
@@ -19,10 +54,10 @@ export default function ResultPage() {
           {/* Result Card */}
           <div className="bg-white rounded-[3.5rem] shadow-2xl overflow-hidden border border-slate-100">
              {/* Header Section */}
-             <div className="bg-cyan-500 p-12 lg:p-20 text-center text-white space-y-6 relative overflow-hidden">
+             <div className={cn("p-12 lg:p-20 text-center text-white space-y-6 relative overflow-hidden", isPassed ? "bg-emerald-500" : "bg-rose-500")}>
                 <div className="relative z-10 space-y-4">
-                  <h1 className="text-4xl lg:text-5xl font-black uppercase tracking-tighter">Congratulations!</h1>
-                  <p className="text-cyan-50 font-bold text-lg">You passed the EdTech Innovations Exam</p>
+                  <h1 className="text-4xl lg:text-5xl font-black uppercase tracking-tighter">{isPassed ? "Congratulations!" : "Keep Trying!"}</h1>
+                  <p className="text-cyan-50 font-bold text-lg">You {isPassed ? "passed" : "failed"} the {latestResult.exam?.title || "Exam"}</p>
                 </div>
                 {/* Decorative circles */}
                 <div className="absolute top-0 right-0 h-40 w-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -39,16 +74,16 @@ export default function ResultPage() {
                             cx="96" 
                             cy="96" 
                             r="88" 
-                            className="stroke-emerald-400 fill-none" 
+                            className={cn("fill-none transition-all duration-1000", isPassed ? "stroke-emerald-400" : "stroke-rose-400")} 
                             strokeWidth="12" 
                             strokeDasharray="552.92" 
-                            strokeDashoffset="66.35" 
+                            strokeDashoffset={552.92 - (552.92 * (latestResult.score / 100))} 
                             strokeLinecap="round"
                          />
                       </svg>
                       <div className="absolute inset-0 flex flex-col items-center justify-center">
-                         <span className="text-5xl font-black text-slate-800">88%</span>
-                         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Global Score</span>
+                         <span className="text-5xl font-black text-slate-800">{latestResult.score}%</span>
+                         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Your Score</span>
                       </div>
                    </div>
 
@@ -71,51 +106,25 @@ export default function ResultPage() {
 
                 {/* Performance Message */}
                 <div className="mt-12 text-center max-w-2xl mx-auto space-y-6">
-                   <h3 className="text-2xl font-bold text-slate-800 tracking-tight">Great job, Lina!</h3>
+                   <h3 className="text-2xl font-bold text-slate-800 tracking-tight">{isPassed ? "Great job!" : "Don't give up!"}</h3>
                    <p className="text-slate-400 leading-relaxed font-medium">
-                     You are now certified in Virtual Learning Suites. This certificate has been added to your profile and can be shared on LinkedIn.
+                     {isPassed ? "You have successfully completed this assessment. Your certificate is ready to be shared." : "Review your materials and try again to improve your score and earn your certification."}
                    </p>
                 </div>
 
                 {/* Actions */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 pt-12 border-t border-slate-100">
                    <Link href="/exams">
-                    <button className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-white border-2 border-slate-100 text-slate-600 font-bold hover:bg-slate-50 transition">
+                    <button className="flex items-center gap-3 px-10 py-5 rounded-2xl bg-white border-2 border-slate-100 text-slate-600 font-bold hover:bg-slate-50 transition cursor-pointer">
                       <RotateCcw size={18} /> Retake Exam
                     </button>
                    </Link>
                    <Link href="/">
-                    <Button className="bg-cyan-400 hover:bg-cyan-500 text-white rounded-2xl px-12 h-16 font-black uppercase tracking-widest text-lg shadow-xl shadow-cyan-400/30">
+                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-2xl px-12 h-16 font-black uppercase tracking-widest text-lg shadow-xl shadow-primary/30 cursor-pointer">
                       Back to Home <Home size={18} className="ml-2" />
                     </Button>
                    </Link>
                 </div>
-             </div>
-          </div>
-
-          {/* Featured Courses for Results */}
-          <div className="mt-24 space-y-12">
-             <div className="flex items-center justify-between">
-                <h2 className="text-3xl font-black text-slate-800 tracking-tight uppercase">Recommended for you</h2>
-                <Link href="/courses" className="text-primary font-bold hover:underline">View all</Link>
-             </div>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[1, 2].map((i) => (
-                  <div key={i} className="bg-white rounded-[2.5rem] p-8 shadow-xl border border-slate-50 flex gap-6 items-center group cursor-pointer hover:-translate-y-1 transition duration-300">
-                     <div className="relative h-24 w-24 shrink-0 rounded-2xl overflow-hidden shadow-md">
-                        <Image src={`https://images.unsplash.com/photo-${i === 1 ? '1516321497487-e288fb19713f' : '1522202176988-66273c2fd55f'}?q=80&w=200&auto=format&fit=crop`} alt="course" fill className="object-cover" />
-                     </div>
-                     <div className="flex-1 space-y-2">
-                        <h4 className="font-bold text-slate-800 group-hover:text-primary transition">Advanced EdTech Implementation</h4>
-                        <p className="text-xs text-slate-400 font-medium">Continue your path to mastery</p>
-                        <div className="flex items-center gap-1 text-amber-500">
-                           <Star size={14} fill="currentColor" />
-                           <span className="text-xs font-bold">4.9</span>
-                        </div>
-                     </div>
-                     <ChevronRight className="text-slate-200 group-hover:text-primary transition" />
-                  </div>
-                ))}
              </div>
           </div>
         </div>
@@ -123,3 +132,5 @@ export default function ResultPage() {
     </div>
   );
 }
+
+import { cn } from "@/lib/utils";
