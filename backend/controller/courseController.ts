@@ -65,7 +65,7 @@ export const resizeCourseImages = asyncHandler(
 
 export const getAllCourses = factory.getAll(Course, 'courses');
 
-export const getCourse = factory.getOne(Course);
+export const getCourse = factory.getOne(Course, 'lessons');
 
 export const createCourse = factory.createOne(Course);
 

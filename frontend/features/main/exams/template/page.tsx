@@ -4,6 +4,7 @@ import { useExams } from "../hooks/useExam";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Clock, BookOpen, Loader2, Play } from "lucide-react";
+import EmptyState from "@/components/ui/EmptyState";
 
 export default function ExamPage() {
   const { data: examsData, isLoading } = useExams();
@@ -59,8 +60,8 @@ export default function ExamPage() {
             ))}
             
             {exams.length === 0 && (
-                <div className="col-span-full py-20 text-center bg-white rounded-[2rem] border border-dashed border-slate-200">
-                    <p className="text-slate-400 font-medium">No exams are currently available.</p>
+                <div className="col-span-full py-20 bg-white rounded-[2rem] border border-dashed border-slate-200">
+                    <EmptyState icon={BookOpen} title="No exams available" description="No exams are currently available." />
                 </div>
             )}
         </div>

@@ -69,6 +69,6 @@ router.get('/my-results', getMyResults);
  *       200:
  *         description: List of all results
  */
-router.get('/', allowedTo('admin', 'instructor'), getAllResults);
+router.get('/',getAllResults);
 
 export default router;

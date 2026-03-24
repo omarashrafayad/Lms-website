@@ -20,7 +20,7 @@ export function WhatIsTOTC() {
           {/* Instructor Card */}
           <div className="relative h-[400px] overflow-hidden rounded-3xl group">
             <Image
-              src="https://images.unsplash.com/photo-1544717297-fa154da09f9b?q=80&w=2670&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop"
               alt="Instructor"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"

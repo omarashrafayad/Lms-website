@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Star, Users, PlayCircle, Twitter, Youtube, Instagram, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import { Star, Users, PlayCircle, Twitter, Youtube, Instagram, ChevronLeft, ChevronRight, Loader2, BookOpen } from "lucide-react";
 import Link from "next/link";
+import EmptyState from "@/components/ui/EmptyState";
 import { useCourses } from "../../courses/hooks/useCourse";
 import { getImageUrl } from "@/lib/image.utils";
 
@@ -116,8 +117,8 @@ export default function LiteratureCoursePage() {
           ))}
           
           {courses.length === 0 && (
-              <div className="col-span-full py-20 text-center text-slate-400">
-                  No literature resources found.
+              <div className="col-span-full py-20 bg-white rounded-[2rem] border border-dashed border-slate-200">
+                  <EmptyState icon={BookOpen} title="No courses found" description="No literature resources found." />
               </div>
           )}
         </div>

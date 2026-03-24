@@ -7,7 +7,12 @@ export interface ICourse extends Document {
     description: string;
     instructor: Types.ObjectId;
     duration?: string;
+    totalHours?: number;
     lessonsCount?: number;
+    level?: 'Beginner' | 'Intermediate' | 'Advanced' | 'All Levels';
+    language?: string;
+    enrolledCount?: number;
+    whatYouWillLearn?: string[];
     price: number;
     priceAfterDiscount?: number;
     imageCover: string;
@@ -41,10 +46,28 @@ const courseSchema = new mongoose.Schema<ICourse>(
             required: [true, 'Course must have an instructor'],
         },
         duration: String,
+        totalHours: {
+            type: Number,
+            default: 0,
+        },
         lessonsCount: {
             type: Number,
             default: 0,
         },
+        level: {
+            type: String,
+            enum: ['Beginner', 'Intermediate', 'Advanced', 'All Levels'],
+            default: 'Beginner',
+        },
+        language: {
+            type: String,
+            default: 'Arabic',
+        },
+        enrolledCount: {
+            type: Number,
+            default: 0,
+        },
+        whatYouWillLearn: [String],
         price: {
             type: Number,
             required: [true, 'Course price is required'],
@@ -78,8 +101,19 @@ const courseSchema = new mongoose.Schema<ICourse>(
             default: 0,
         },
     },
-    { timestamps: true }
+    {
+        timestamps: true,
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
+    }
 );
+
+// Virtual for lessons
+courseSchema.virtual('lessons', {
+    ref: 'Lesson',
+    foreignField: 'course',
+    localField: '_id',
+});
 
 const setImageURL = (doc: ICourse) => {
     if (doc.imageCover) {
@@ -104,5 +138,18 @@ courseSchema.post('save', (doc) => {
     setImageURL(doc);
 });
 
+courseSchema.pre(/^find/, function () {
+    (this as any).populate({
+        path: 'instructor',
+        select: 'name _id',
+    });
+});
+
+courseSchema.pre(/^find/, function () {
+    (this as any).populate({
+        path: 'category',
+        select: 'name _id',
+    });
+});
 const courseModel = mongoose.model<ICourse>('Course', courseSchema)
 export default courseModel

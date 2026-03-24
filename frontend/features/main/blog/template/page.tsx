@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ChevronLeft, Eye, Loader2 } from "lucide-react";
+import { ChevronRight, ChevronLeft, Eye, Loader2, PenTool } from "lucide-react";
 import { useBlogs } from "../hooks/useBlog";
 import { getImageUrl } from "@/lib/image.utils";
+import EmptyState from "@/components/ui/EmptyState";
 
 export default function BlogPage() {
   const { data: blogsData, isLoading } = useBlogs();
@@ -95,8 +96,8 @@ export default function BlogPage() {
           </div>
           
           {blogs.length === 0 && (
-              <div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
-                  <p className="text-gray-400">No blogs found yet.</p>
+              <div className="col-span-full py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
+                  <EmptyState icon={PenTool} title="No blogs found" description="No blogs have been published yet." />
               </div>
           )}
 

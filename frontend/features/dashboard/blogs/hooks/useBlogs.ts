@@ -31,3 +31,14 @@ export const useCreateBlog = () => {
     },
   });
 };
+
+export const useUpdateBlog = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) => updateBlog(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["dashboard-blogs"] });
+      toast.success("Blog post updated successfully");
+    },
+  });
+};

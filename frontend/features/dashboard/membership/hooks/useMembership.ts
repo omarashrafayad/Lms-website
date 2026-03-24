@@ -31,3 +31,14 @@ export const useCreatePlan = () => {
     },
   });
 };
+
+export const useUpdatePlan = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) => updatePlan(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["dashboard-membership-plans"] });
+      toast.success("Plan updated successfully");
+    },
+  });
+};

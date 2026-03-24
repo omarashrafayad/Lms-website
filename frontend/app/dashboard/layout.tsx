@@ -16,7 +16,8 @@ import {
     PenTool,
     FolderTree,
     CreditCard,
-    ShoppingBag
+    ShoppingBag,
+    LayoutList
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -28,9 +29,9 @@ import { toast } from "sonner";
 const NAV_ITEMS = [
     { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
     { label: "Courses", icon: BookOpen, href: "/dashboard/courses" },
+    { label: "Lessons", icon: LayoutList, href: "/dashboard/lessons" },
     { label: "Categories", icon: FolderTree, href: "/dashboard/categories" },
     { label: "Exams", icon: PenTool, href: "/dashboard/exams" },
-    { label: "Results", icon: Award, href: "/dashboard/results" },
     { label: "Blogs", icon: FileText, href: "/dashboard/blogs" },
     { label: "Orders", icon: ShoppingBag, href: "/dashboard/orders" },
     { label: "Membership", icon: CreditCard, href: "/dashboard/membership" },
@@ -102,7 +103,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             System
                         </p>
                         <nav className="flex flex-col gap-1.5">
-                            <button 
+                            <button
                                 onClick={handleLogout}
                                 className="w-full flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-red-500 hover:bg-red-50 transition-all duration-200 cursor-pointer"
                             >

@@ -62,7 +62,7 @@ export default function OrdersTemplate() {
                     {!row.isPaid && (
                         <ActionButton 
                             icon={CheckCircle} 
-                            variant="primary" 
+                            // variant="primary" 
                             onClick={() => updateMutation.mutate({ id: row._id, status: "paid" })} 
                         />
                     )}

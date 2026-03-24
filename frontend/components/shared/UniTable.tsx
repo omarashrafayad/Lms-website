@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils"
 import { Pagination } from "./Pagination"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { motion, AnimatePresence } from "motion/react"
+import EmptyState from "@/components/ui/EmptyState"
+import { Box } from "lucide-react"
 
 import {
     Select,
@@ -281,8 +283,8 @@ function UniTable<TData>({
 
     if (data.length === 0) {
         return (
-            <div className={cn("text-center py-20 text-gray-500 bg-white rounded-2xl border border-gray-200", className)}>
-                {emptyMessage}
+            <div className={cn("flex flex-col items-center justify-center p-8 bg-white rounded-2xl border border-gray-200", className)}>
+                <EmptyState icon={Box} title="No data found" description={emptyMessage} />
             </div>
         )
     }

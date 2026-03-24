@@ -31,7 +31,7 @@ const router = express.Router();
  */
 router.route('/')
     .get(getAllBlogs)
-    .post(protect, allowedTo('instructor', 'admin'), uploadBlogImage, resizeBlogImage, createBlog);
+    .post(uploadBlogImage, resizeBlogImage, createBlog);
 
 /**
  * @swagger
@@ -67,7 +67,7 @@ router.route('/')
  */
 router.route('/:id')
     .get(getBlog)
-    .patch(protect, allowedTo('instructor', 'admin'), uploadBlogImage, resizeBlogImage, updateBlog)
-    .delete(protect, allowedTo('instructor', 'admin'), deleteBlog);
+    .patch(uploadBlogImage, resizeBlogImage, updateBlog)
+    .delete(deleteBlog);
 
 export default router;

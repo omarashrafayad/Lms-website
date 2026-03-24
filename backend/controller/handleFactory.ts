@@ -37,9 +37,13 @@ export const getAll = <T extends Document>(model: Model<T>, modelName: string | 
   });
 
 
-export const getOne = <T extends Document>(model: Model<T>) =>
+export const getOne = <T extends Document>(model: Model<T>, populateOpt?: string | any) =>
   asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-    const doc = await model.findById(req.params.id);
+    let query = model.findById(req.params.id);
+    if (populateOpt) {
+      query = query.populate(populateOpt);
+    }
+    const doc = await query;
 
     if (!doc) {
       return next(new ApiError(`No document for this id`, 404));

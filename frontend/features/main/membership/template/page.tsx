@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Check, ChevronDown, ChevronRight, ChevronLeft, Apple, Smartphone, Loader2 } from "lucide-react";
+import { Check, ChevronDown, ChevronRight, ChevronLeft, Apple, Smartphone, Loader2, Shield } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useMembershipPlans } from "../hooks/useMembership";
+import EmptyState from "@/components/ui/EmptyState";
 
 export default function MembershipPage() {
   const { data: plansData, isLoading } = useMembershipPlans();
@@ -62,8 +63,8 @@ export default function MembershipPage() {
             ))}
             
             {plans.length === 0 && (
-                <div className="col-span-full py-20 text-center text-slate-400">
-                    No membership plans available at the moment.
+                <div className="col-span-full py-20 bg-white rounded-[2rem] border border-dashed border-slate-200">
+                    <EmptyState icon={Shield} title="No membership plans" description="No membership plans available at the moment." />
                 </div>
             )}
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Users, Layout, Tooltip as ToolIcon, FileCheck, MessageCircle } from "lucide-react";
+import { Users, Layout } from "lucide-react";
 
 export function Features() {
   const featureList = [

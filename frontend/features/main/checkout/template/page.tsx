@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import Link from "next/link";
 import { useCart, useCreateOrder, useRemoveFromCart } from "../hooks/useCheckout";
 import { getImageUrl } from "@/lib/image.utils";
 import { Loader2, Trash2, ShoppingCart } from "lucide-react";
+import EmptyState from "@/components/ui/EmptyState";
 
 export default function CheckoutPage() {
   const { data: cartData, isLoading } = useCart();
@@ -34,17 +34,14 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
       return (
-          <div className="bg-white min-h-screen py-32 flex flex-col items-center justify-center text-center px-6">
-              <div className="h-24 w-24 bg-blue-50 rounded-full flex items-center justify-center text-primary mb-8 shadow-inner">
-                  <ShoppingCart size={40} />
-              </div>
-              <h1 className="text-3xl font-bold text-slate-800 mb-4">Your cart is empty</h1>
-              <p className="text-slate-500 max-w-md mb-10 font-medium">Looks like you haven't added any courses yet. Start exploring our world-class curriculum.</p>
-              <Link href="/courses">
-                  <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-12 font-bold cursor-pointer shadow-lg shadow-primary/20">
-                      Browse Courses
-                  </Button>
-              </Link>
+          <div className="bg-white min-h-screen flex items-center justify-center p-6">
+             <EmptyState 
+                icon={ShoppingCart} 
+                title="Your cart is empty" 
+                description="Looks like you haven't added any courses yet. Start exploring our world-class curriculum." 
+                actionLabel="Browse Courses" 
+                actionHref="/courses" 
+              />
           </div>
       );
   }

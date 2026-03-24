@@ -5,6 +5,8 @@ import { CheckCircle2, XCircle, RotateCcw, Home, Award, ChevronRight, Star, Load
 import Link from "next/link";
 import Image from "next/image";
 import { useMyResults } from "../hooks/useResult";
+import EmptyState from "@/components/ui/EmptyState";
+import { cn } from "@/lib/utils";
 
 export default function ResultPage() {
   const { data: resultsData, isLoading } = useMyResults();
@@ -23,17 +25,8 @@ export default function ResultPage() {
   if (!latestResult) {
     return (
         <div className="bg-slate-50 min-h-screen py-24 flex items-center justify-center">
-             <div className="text-center space-y-6">
-                <div className="mx-auto h-24 w-24 bg-white rounded-3xl shadow-xl flex items-center justify-center text-slate-300">
-                    <Award size={48} />
-                </div>
-                <h1 className="text-2xl font-bold text-slate-800">No results found</h1>
-                <p className="text-slate-500">You haven't taken any exams yet.</p>
-                <Link href="/exams">
-                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl h-12 px-8 cursor-pointer shadow-lg shadow-primary/20">
-                        Go to Exams
-                    </Button>
-                </Link>
+             <div className="text-center space-y-6 w-full max-w-md bg-white rounded-[2rem] p-10 shadow-xl border border-slate-50">
+                <EmptyState icon={Award} title="No results found" description="You haven't taken any exams yet." actionLabel="Go to Exams" actionHref="/exams" />
              </div>
         </div>
     );
@@ -132,5 +125,3 @@ export default function ResultPage() {
     </div>
   );
 }
-
-import { cn } from "@/lib/utils";

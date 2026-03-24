@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useBlogs } from "../../blog/hooks/useBlog";
 import { getImageUrl } from "@/lib/image.utils";
-import { Loader2 } from "lucide-react";
+import { Loader2, PenTool } from "lucide-react";
+import EmptyState from "@/components/ui/EmptyState";
 
 export function News() {
   const { data: blogsData, isLoading } = useBlogs({ limit: 4 });
@@ -84,8 +85,8 @@ export function News() {
             ))}
             
             {blogs.length === 0 && (
-                <div className="h-full flex items-center justify-center bg-gray-50 rounded-3xl border border-dashed border-gray-200">
-                    <p className="text-gray-400">No news articles found.</p>
+                <div className="h-full flex items-center justify-center bg-gray-50 rounded-[2rem] border border-dashed border-gray-200 py-20 w-full lg:w-[200%] -ml-0 lg:-ml-[100%] z-10">
+                    <EmptyState icon={PenTool} title="No news found" description="No news articles found." />
                 </div>
             )}
           </div>

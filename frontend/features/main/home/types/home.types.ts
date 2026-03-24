@@ -1,7 +1,6 @@
 export interface HomeResponse {
   message: string;
   data: {
-    categories: any[];
     newCourses: any[];
     trendingCourses: any[];
     stats?: {

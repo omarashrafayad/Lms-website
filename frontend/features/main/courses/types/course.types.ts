@@ -12,6 +12,11 @@ export interface Course {
     ratingsAverage?: number;
     ratingsQuantity?: number;
     instructor?: any;
+    level?: string;
+    language?: string;
+    enrolledCount?: number;
+    whatYouWillLearn?: string[];
+    lessons?: any[];
     createdAt: string;
     updatedAt: string;
 }

@@ -12,11 +12,10 @@ const router = express.Router();
 
 router.route("/")
     .get(getAllMembershipPlans)
-    .post(protect, allowedTo("admin"), createMembershipPlan);
+    .post(createMembershipPlan);
 
 router.route("/:id")
     .get(getMembershipPlan)
-    .patch(protect, allowedTo("admin"), updateMembershipPlan)
-    .delete(protect, allowedTo("admin"), deleteMembershipPlan);
-
+    .patch(updateMembershipPlan)
+    .delete(deleteMembershipPlan);
 export default router;

@@ -31,3 +31,14 @@ export const useCreateExam = () => {
     },
   });
 };
+
+export const useUpdateExam = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) => updateExam(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["dashboard-exams"] });
+      toast.success("Exam updated successfully");
+    },
+  });
+};

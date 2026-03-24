@@ -31,7 +31,7 @@ const router = express.Router({ mergeParams: true });
  */
 router.route('/')
     .get(getAllExams)
-    .post(protect, allowedTo('instructor', 'admin'), createExam);
+    .post( createExam);
 
 /**
  * @swagger
@@ -67,7 +67,7 @@ router.route('/')
  */
 router.route('/:id')
     .get(getExam)
-    .patch(protect, allowedTo('instructor', 'admin'), updateExam)
-    .delete(protect, allowedTo('instructor', 'admin'), deleteExam);
+    .patch(updateExam)
+    .delete(deleteExam);
 
 export default router;
