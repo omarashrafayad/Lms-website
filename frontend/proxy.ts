@@ -1,0 +1,28 @@
+import { NextRequest, NextResponse } from "next/server";
+export function proxy(request: NextRequest) {
+  const token = request.cookies.get("token")?.value;
+  const role = request.cookies.get("role")?.value;
+
+  const { pathname } = request.nextUrl;
+
+  if (pathname.startsWith("/profile") && !token) {
+    return NextResponse.redirect(new URL("/auth", request.url));
+  }
+
+  if (pathname.startsWith("/auth") && token) {
+    return NextResponse.redirect(new URL("/profile", request.url));
+  }
+
+  if (pathname.startsWith("/dashboard")) {
+    if (!token) {
+      return NextResponse.redirect(new URL("/auth", request.url));
+    }
+    if (role !== "admin") {
+      return NextResponse.redirect(new URL("/", request.url)); 
+    }
+    
+  }
+
+  return NextResponse.next();
+}
+export const config = { matcher: ["/profile/:path*", "/auth/:path*", "/dashboard/:path*"] };

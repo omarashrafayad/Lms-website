@@ -6,7 +6,7 @@ import { Play, Calendar, User, Mail } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-primary pb-24 pt-12 text-white">
+    <section className="relative overflow-hidden bg-primary pb-24 pt-32 text-white">
       <div className="container mx-auto px-6 md:px-12 lg:px-24">
         <div className="flex flex-col items-center lg:flex-row">
           {/* Left Content */}

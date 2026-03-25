@@ -64,9 +64,19 @@ export async function getProfile() {
       };
     }
 
-    const response = await serverAxios.get("users/getMe");
+    // Try singular 'user/getMe' first as it is used in other LMS dashboard APIs, then fallback to 'users/getMe'
+    let response;
+    try {
+      response = await serverAxios.get("user/getMe");
+    } catch (e) {
+      response = await serverAxios.get("users/getMe");
+    }
+    
+    // Some backends return user in .data.data, others in .data.user, or directly in .data
+    const userData = response.data?.data || response.data?.user || response.data;
+
     return {
-      user: response.data?.data || null,
+      user: userData || null,
       token,
     };
   } catch (error) {
