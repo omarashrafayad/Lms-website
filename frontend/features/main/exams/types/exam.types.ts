@@ -12,6 +12,8 @@ export interface Exam {
     course: any;
     questions: Question[];
     duration: number; // in minutes
+    totalMarks: number;
+    passingScore: number;
     createdAt: string;
     updatedAt: string;
 }

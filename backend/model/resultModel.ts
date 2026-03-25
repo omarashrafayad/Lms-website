@@ -4,8 +4,11 @@ export interface IResult extends Document {
     user: Types.ObjectId;
     exam: Types.ObjectId;
     score: number;
-    status: 'passed' | 'failed';
+    status: 'pass' | 'fail';
     answers: number[]; // user's selected option indices
+    correctAnswers: number;
+    wrongAnswers: number;
+    totalQuestions: number;
 }
 
 const resultSchema = new mongoose.Schema<IResult>(
@@ -26,10 +29,22 @@ const resultSchema = new mongoose.Schema<IResult>(
         },
         status: {
             type: String,
-            enum: ['passed', 'failed'],
+            enum: ['pass', 'fail'],
             required: true,
         },
         answers: [Number],
+        correctAnswers: {
+            type: Number,
+            required: true,
+        },
+        wrongAnswers: {
+            type: Number,
+            required: true,
+        },
+        totalQuestions: {
+            type: Number,
+            required: true,
+        },
     },
     { timestamps: true }
 );

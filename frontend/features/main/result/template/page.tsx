@@ -33,9 +33,9 @@ export default function ResultPage() {
   }
 
   const stats = [
-    { label: "Correct Answers", value: latestResult.correctAnswers.toString(), icon: <CheckCircle2 className="text-emerald-500" />, sub: `/ ${latestResult.totalQuestions} Questions` },
-    { label: "Points Earned", value: latestResult.score.toString(), icon: <Award className="text-amber-500" />, sub: `/ 100 Total` },
-    { label: "Wrong Answers", value: latestResult.wrongAnswers.toString(), icon: <XCircle className="text-rose-500" />, sub: "Check mistakes" },
+    { label: "Correct Answers", value: (latestResult.correctAnswers ?? 0).toString(), icon: <CheckCircle2 className="text-emerald-500" />, sub: `/ ${latestResult.totalQuestions || 0} Questions` },
+    { label: "Points Earned", value: (latestResult.score ?? 0).toString(), icon: <Award className="text-amber-500" />, sub: `/ 100 Total` },
+    { label: "Wrong Answers", value: (latestResult.wrongAnswers ?? 0).toString(), icon: <XCircle className="text-rose-500" />, sub: "Check mistakes" },
   ];
 
   const isPassed = latestResult.status === "pass";

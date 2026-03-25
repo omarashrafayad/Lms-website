@@ -5,6 +5,7 @@ import axios, { AxiosInstance } from "axios";
 export const clientAxios: AxiosInstance = axios.create({
   baseURL: "http://localhost:5000/api/v1/",
   headers: { Accept: "application/json" },
+  withCredentials: true,
 });
 
 clientAxios.interceptors.request.use((config) => {

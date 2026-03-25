@@ -20,7 +20,9 @@ import examRoute from './routes/examRoute'
 import resultRoute from './routes/resultRoute'
 import blogRoute from './routes/blogRoute'
 import membershipRoute from './routes/membershipRoute'
+import chatRoute from './routes/chatRoute'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 
 import globalError from './middlewares/errorMiddleware'
 import ApiError from './utils/apiError'
@@ -45,6 +47,7 @@ app.options(/.*/, cors({
   origin: "http://localhost:3000",
   credentials: true,
 }));
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'uploads')));
 app.set('query parser', 'extended');
@@ -68,7 +71,8 @@ app.use('/api/v1/lessons', lessonRoute);
 app.use('/api/v1/exams', examRoute);
 app.use('/api/v1/results', resultRoute);
 app.use('/api/v1/blogs', blogRoute);
-app.use('/api/v1/membership-plans', membershipRoute);
+app.use('/api/v1/memberships', membershipRoute);
+app.use('/api/v1/chats', chatRoute);
 
 app.all(/.*/, (req: Request, res: Response, next: NextFunction) => {
   next(new ApiError(`Can't find this route: ${req.originalUrl}`, 404));

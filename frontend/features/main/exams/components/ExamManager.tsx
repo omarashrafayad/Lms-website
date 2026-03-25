@@ -16,26 +16,26 @@ export default function ExamManager() {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
-  const [timeLeft, setTimeLeft] = useState(0);
+  const [timeLeft, setTimeLeft] = useState<number | null>(null);
   const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
-    if (examData?.data) {
+    if (examData?.data && timeLeft === null) {
       setTimeLeft(examData.data.duration * 60);
       setAnswers(new Array(examData.data.questions.length).fill(-1));
     }
-  }, [examData]);
+  }, [examData, timeLeft]);
 
   useEffect(() => {
-    if (timeLeft > 0 && !isFinished) {
+    if (timeLeft !== null && timeLeft > 0 && !isFinished) {
       const timer = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
+        setTimeLeft((prev) => (prev !== null && prev > 0 ? prev - 1 : 0));
       }, 1000);
       return () => clearInterval(timer);
-    } else if (timeLeft === 0 && examData?.data && !isFinished) {
+    } else if (timeLeft === 0 && !isFinished && timeLeft !== null) {
       handleFinish();
     }
-  }, [timeLeft, isFinished, examData]);
+  }, [timeLeft, isFinished]);
 
   const handleAnswer = (optionIndex: number) => {
     const newAnswers = [...answers];
@@ -44,6 +44,7 @@ export default function ExamManager() {
   };
 
   const handleFinish = () => {
+    if (isFinished) return;
     setIsFinished(true);
     submitMutation.mutate({
       examId: id,
@@ -67,7 +68,8 @@ export default function ExamManager() {
   if (!exam) return <div>Exam not found</div>;
 
   const currentQuestion = exam.questions[currentQuestionIndex];
-  const formatTime = (seconds: number) => {
+  const formatTime = (seconds: number | null) => {
+    if (seconds === null) return "--:--";
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
@@ -82,7 +84,7 @@ export default function ExamManager() {
             <p className="text-sm text-slate-400 font-medium">Topic: {exam.course?.title || 'General'}</p>
           </div>
           <div className="flex items-center gap-6">
-            <div className={`flex items-center gap-2 px-6 py-3 rounded-2xl font-black border transition-colors ${timeLeft < 60 ? "bg-rose-50 text-rose-500 border-rose-100" : "bg-blue-50 text-primary border-blue-100"}`}>
+            <div className={`flex items-center gap-2 px-6 py-3 rounded-2xl font-black border transition-colors ${(timeLeft !== null && timeLeft < 60) ? "bg-rose-50 text-rose-500 border-rose-100" : "bg-blue-50 text-primary border-blue-100"}`}>
                <Clock size={20} />
                <span>{formatTime(timeLeft)}</span>
             </div>

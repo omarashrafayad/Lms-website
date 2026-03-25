@@ -3,7 +3,7 @@
 import { useExams } from "../hooks/useExam";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Clock, BookOpen, Loader2, Play } from "lucide-react";
+import { Clock, BookOpen, Loader2, Play, Trophy, CheckCircle2 } from "lucide-react";
 import EmptyState from "@/components/ui/EmptyState";
 
 export default function ExamPage() {
@@ -39,14 +39,22 @@ export default function ExamPage() {
                     </p>
                     
                     <div className="mt-auto space-y-6">
-                        <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-slate-400">
+                        <div className="grid grid-cols-2 gap-y-3 text-[10px] font-bold uppercase tracking-widest text-slate-400">
                             <span className="flex items-center gap-2">
                                 <Clock size={14} className="text-primary" />
-                                {exam.duration} Minutes
+                                {exam.duration} Min
                             </span>
                             <span className="flex items-center gap-2">
                                 <BookOpen size={14} className="text-primary" />
-                                {exam.questions?.length || 0} Questions
+                                {exam.questions?.length || 0} Ques
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <Trophy size={14} className="text-amber-500" />
+                                {exam.totalMarks || 100} Marks
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <CheckCircle2 size={14} className="text-green-500" />
+                                {exam.passingScore || 50} Pass
                             </span>
                         </div>
                         

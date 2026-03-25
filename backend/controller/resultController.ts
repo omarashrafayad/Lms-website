@@ -17,22 +17,26 @@ export const submitExam = asyncHandler(async (req, res, next) => {
         }
     });
 
-    const score = (correctAnswersCount / exam.questions.length) * 100;
-    const status = score >= exam.passingScore ? 'passed' : 'failed';
+    const totalQuestions = exam.questions.length;
+    const score = totalQuestions > 0 ? (correctAnswersCount / totalQuestions) * 100 : 0;
+    const status = score >= exam.passingScore ? 'pass' : 'fail';
 
     const result = await Result.create({
         user: req.user?._id,
         exam: examId,
         score,
         status,
-        answers
+        answers,
+        correctAnswers: correctAnswersCount,
+        wrongAnswers: totalQuestions - correctAnswersCount,
+        totalQuestions: totalQuestions
     });
 
     res.status(201).json({ status: 'success', data: result });
 });
 
 export const getMyResults = asyncHandler(async (req, res, next) => {
-    const results = await Result.find({ user: req.user?._id }).populate('exam');
+    const results = await Result.find({ user: req.user?._id }).populate('exam').sort({ createdAt: -1 });
     res.status(200).json({ status: 'success', results: results.length, data: results });
 });
 
