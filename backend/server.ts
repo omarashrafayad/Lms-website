@@ -50,14 +50,6 @@ app.use(cors({
   credentials: true
 }));
 
-app.options("*", cors({
-  origin: [
-    "http://localhost:3000",
-    "https://lms-website-r361.vercel.app"
-  ],
-  credentials: true
-}));
-
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'uploads')));
