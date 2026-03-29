@@ -1,6 +1,7 @@
 export interface Course {
     _id: string;
     title: string;
+    title_ar?: string;
     description: string;
     description_ar: string;
     price: number;

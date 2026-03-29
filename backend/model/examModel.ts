@@ -34,7 +34,11 @@ const examSchema = new mongoose.Schema<IExam>(
             {
                 question: String,
                 options: [String],
-                correctAnswer: Number,
+                correctAnswer: {
+                    type: Number,
+                    required: true,
+                    select: false
+                }
             },
         ],
         totalMarks: {

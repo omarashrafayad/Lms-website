@@ -2,7 +2,7 @@ import Course from '../model/courseModel'
 import * as factory from './handleFactory';
 import asyncHandler from 'express-async-handler';
 import sharp from 'sharp';
-import { v4 as uuidv4 } from 'uuid';
+import crypto from 'crypto';
 import { uploadMixOfImages } from '../middlewares/uploadImageMiddleware';
 
 
@@ -27,7 +27,7 @@ export const resizeCourseImages = asyncHandler(
         };
 
         if (files.imageCover && files.imageCover.length > 0) {
-            const imageCoverFileName = `course-${uuidv4()}-${Date.now()}-cover.jpeg`;
+            const imageCoverFileName = `course-${crypto.randomUUID()}-${Date.now()}-cover.jpeg`;
 
             await sharp(files.imageCover[0].buffer)
                 .resize(2000, 1333)
@@ -44,7 +44,7 @@ export const resizeCourseImages = asyncHandler(
             await Promise.all(
                 files.images.map(
                     async (img: Express.Multer.File, index: number) => {
-                        const imageName = `course-${uuidv4()}-${Date.now()}-${index + 1}.jpeg`;
+                        const imageName = `course-${crypto.randomUUID()}-${Date.now()}-${index + 1}.jpeg`;
 
                         await sharp(img.buffer)
                             .resize(2000, 1333)

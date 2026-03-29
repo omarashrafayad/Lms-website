@@ -10,8 +10,10 @@ import { signupAction } from "@/features/auth/api/auth";
 import { toast } from "sonner";
 import { Form } from "@/components/ui/form";
 import { UniInput } from "@/components/shared/UniInput";
+import { useTranslations } from "next-intl";
 
 export function RegisterForm() {
+    const t = useTranslations("auth");
     const router = useRouter();
 
     const form = useForm<SignupFormData>({
@@ -35,14 +37,14 @@ export function RegisterForm() {
         try {
             const res = await signupAction(data);
             if (res?.success) {
-                toast.success("Account created successfully!");
+                toast.success(t("registerSuccess"));
                 router.push("/");
                 router.refresh();
             } else {
-                toast.error(res?.error || "Registration failed. Please try again.");
+                toast.error(res?.error || t("registerFailed"));
             }
         } catch (error) {
-            toast.error("An unexpected error occurred. Please try again later.");
+            toast.error(t("unexpectedError"));
         }
     };
 
@@ -52,16 +54,16 @@ export function RegisterForm() {
                 <UniInput
                     control={control}
                     name="name"
-                    label="User name"
-                    placeholder="Enter your user name"
+                    label={t("userName")}
+                    placeholder={t("userNamePlaceholder")}
                     required
                 />
 
                 <UniInput
                     control={control}
                     name="email"
-                    label="Email Address"
-                    placeholder="Enter your email"
+                    label={t("email")}
+                    placeholder={t("emailPlaceholder")}
                     type="email"
                     required
                 />
@@ -69,8 +71,8 @@ export function RegisterForm() {
                 <UniInput
                     control={control}
                     name="password"
-                    label="Password"
-                    placeholder="Enter your password"
+                    label={t("password")}
+                    placeholder={t("passwordPlaceholder")}
                     type="password"
                     required
                 />
@@ -78,24 +80,24 @@ export function RegisterForm() {
                 <UniInput
                     control={control}
                     name="passwordConfirm"
-                    label="Confirm Password"
-                    placeholder="Confirm your password"
+                    label={t("confirmPassword")}
+                    placeholder={t("confirmPasswordPlaceholder")}
                     type="password"
                     required
                 />
 
                 <Button
                     type="submit"
-                    className="h-12 w-full rounded-full bg-primary text-white shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl active:scale-[0.98]"
+                    className="h-12 w-full rounded-full bg-primary text-white shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl active:scale-[0.98] rtl:flex-row-reverse"
                     disabled={isSubmitting}
                 >
                     {isSubmitting ? (
                         <>
-                            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                            Creating account...
+                            <Loader2 className="mr-2 rtl:ml-2 rtl:mr-0 h-5 w-5 animate-spin" />
+                            {t("creatingAccount")}
                         </>
                     ) : (
-                        "Create Account"
+                        t("register")
                     )}
                 </Button>
             </form>

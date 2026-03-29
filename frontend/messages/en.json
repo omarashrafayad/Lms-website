@@ -1,0 +1,516 @@
+{
+  "navbar": {
+    "home": "Home",
+    "courses": "Courses",
+    "chat": "Chat",
+    "exams": "Exams",
+    "logout": "Logout",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "profile": "Profile",
+    "brand": "TOTC",
+    "Dashboard":"Dashboard"
+  },
+  "hero": {
+    "title": "Studying Online is now much easier",
+    "studying": "Studying",
+    "subtitle": "TOTC is an interesting platform that will teach you in more an interactive way",
+    "joinFree": "Join for free",
+    "watchHow": "Watch how it works",
+    "students": "Assisted Student",
+    "congratulations": "Congratulations",
+    "admission": "Your admission completed",
+    "class": "User Experience Class",
+    "time": "Today at 12.00 PM",
+    "joinNow": "Join Now",
+    "exploreCourse": "Explore Course",
+    "exploreSubtitle": "Find the right course for your career path.",
+    "newCourses": "New Courses",
+    "trendingCourses": "Trending Courses",
+    "seeAll": "SEE ALL",
+    "explore": "Explore"
+  },
+  "classroom": {
+    "title": "Everything you can do in a physical classroom,",
+    "subTitle": "you can do with TOTC",
+    "description": "TOTC's school management software helps traditional and online schools manage scheduling, attendance, payments and virtual classrooms all in one secure cloud-based system.",
+    "learnMore": "Learn more"
+  },
+  "footer": {
+    "zoom": "Virtual Class for Zoom",
+    "subscribeTitle": "Subscribe to get our Newsletter",
+    "emailPlaceholder": "Your Email",
+    "subscribe": "Subscribe",
+    "home": "Home",
+    "courses": "Courses",
+    "exams": "Exams",
+    "tech": "Class Technologies Inc.",
+    "messageSent": "Message sent successfully"
+
+  },
+  "whatIs": {
+    "title": "What is",
+    "totc": "TOTC?",
+    "description": "TOTC is a platform that allows educators to create online classes whereby they can store the course materials online; manage assignments, quizzes and exams; monitor due dates; grade results and provide students with feedback all in one place.",
+    "forInstructors": "For Instructors",
+    "startClass": "Start a class today",
+    "forStudents": "For Students",
+    "enterCode": "Enter access code"
+  },
+  "stats": {
+    "title": "Our Success",
+    "description": "Ornare id fames interdum porttitor nulla turpis etiam. Diam vitae sollicitudin at nec nam et pharetra gravida.",
+    "students": "Students",
+    "success": "Total success",
+    "questions": "Main questions",
+    "experts": "Chief experts",
+    "years": "Years of experience"
+  },
+  "cloudSoftware": {
+    "title": "All-In-One",
+    "subtitle": "Cloud Software.",
+    "desc": "TOTC is one powerful online software suite that combines all the tools needed to run a successful school or office.",
+    "billing": {
+      "title": "Online Billing, Invoicing, & Contracts",
+      "desc": "Simple and secure control of your organization's financial and legal transactions. Send customized invoices and contracts"
+    },
+    "scheduling": {
+      "title": "Easy Scheduling & Attendance Tracking",
+      "desc": "Schedule and reserve classrooms at one campus or multiple campuses. Keep detailed records of student attendance"
+    },
+    "tracking": {
+      "title": "Customer Tracking",
+      "desc": "Automate and track emails to individuals or groups. Skilline's built-in system helps organize your organization"
+    }
+  },
+  "features": {
+    "title": "Our",
+    "subtitle": "Features",
+    "desc": "This very extraordinary feature, can make learning activities more efficient",
+    "ui": {
+      "title": "A user interface designed for the classroom",
+      "highlight": "user interface",
+      "p1": "Teachers don't get lost in the grid view and have a dedicated Podium space.",
+      "p2": "TA's and presenters can be moved to the front of the class.",
+      "p3": "Teachers can easily see all students and class data at one time."
+    },
+    "tools": {
+      "title": "Tools For Teachers And Learners",
+      "highlight": "Tools",
+      "desc": "Class has a dynamic set of teaching tools built to be deployed and used during class. Teachers can handout assignments in real-time for students to complete and submit."
+    },
+    "assessments": {
+      "title": "Assessments, Quizzes, Tests",
+      "highlight": "Quizzes",
+      "desc": "Easily launch live assignments, quizzes, and tests. Student results are automatically entered in the online gradebook."
+    },
+    "management": {
+      "title": "Class Management Tools for Educators",
+      "highlight": "Class Management",
+      "desc": "Class provides tools to help run and manage the class such as Class Roster, Attendance, and more. With the Gradebook, teachers can review and grade tests and quizzes in real-time."
+    },
+    "discussions": {
+      "title": "One-on-One Discussions",
+      "highlight": "Discussions",
+      "desc": "Teachers and teacher assistants can talk with students privately without leaving the environment."
+    }
+  },
+  "chat": {
+    "noMessages": "No messages yet",
+    "typeMessage": "Type a message...",
+    "searchUser": "Search a user...",
+    "messages": "Messages",
+    "selectChat": "Select a chat to start messaging",
+    "online": "Online",
+    "send": "Send",
+    "sayHello": "Say hello!",
+    "welcome": "Welcome to Chat",
+    "welcomeDesc": "Select a conversation from the sidebar or start a new chat with one of the mentors to collaborate on your learning journey.",
+    "findMentor": "Find Mentor",
+    "available": "Available",
+    "cancel": "Cancel",
+    "searchPeople": "Search people...",
+    "connect": "Connect with mentors",
+    "mustLogin": "You must login first to start chatting"
+  },
+  "roles": {
+    "instructor": "Instructor",
+    "student": "Student",
+    "admin": "Admin"
+  },
+  "courses": {
+    "academicPrograms": "Academic Programs",
+    "exploreSkills": "Explore Skills of Tomorrow.",
+    "availablePrograms": "Available Programs",
+    "allPrograms": "All Programs",
+    "categories": "Categories",
+    "premiumAccess": "Premium Access",
+    "premiumDesc": "Get unlimited access to all expert-led programs.",
+    "explorePlans": "Explore Plans",
+    "expansionInProgress": "Expansion in Progress",
+    "expansionDesc": "We are currently curating more programs for this specialization. Stay tuned.",
+    "browseAll": "Browse All Programs",
+    "initializing": "Initializing courses...",
+    "expert": "Expert",
+    "education": "Education",
+    "hours": "h",
+    "categoryNames": {
+      "Design": "Design",
+      "Development": "Development",
+      "Data Science": "Data Science",
+      "Business": "Business",
+      "Marketing": "Marketing",
+      "Photography": "Photography",
+      "Health": "Health",
+      "Literature": "Literature"
+    }
+  },
+  "courseDetails": {
+    "backToCourses": "Back to Courses",
+    "overview": "Overview",
+    "lessons": "Lessons",
+    "aboutCourse": "About this course",
+    "aboutLesson": "About This Lesson",
+    "learningNow": "Learning Now",
+    "lesson": "Lesson",
+    "feedback": "Student Feedback",
+    "rating": "Course Rating",
+    "stars": "Stars",
+    "curriculum": "Course Curriculum",
+    "video": "Video",
+    "noLessons": "No lessons uploaded yet",
+    "noPreview": "No Preview Available",
+    "selectToStart": "Select a lesson from the Overview to start",
+    "inclusions": "Course Inclusions",
+    "lifetimeAccess": "Full lifetime access",
+    "allDevices": "Access on all devices",
+    "certification": "Certification of completion",
+    "moneyBack": "Money Back Guarantee",
+    "share": "Share with friends",
+    "reviews": "reviews",
+    "students": "Students",
+    "updated": "Updated",
+    "notFound": "Course not found",
+    "uncategorized": "Uncategorized",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "senior": "Senior Expert & Dedicated Educator with 10+ years of experience in the field.",
+    "categoryNames": {
+      "Design": "Design",
+      "Development": "Development",
+      "Data Science": "Data Science",
+      "Business": "Business",
+      "Marketing": "Marketing",
+      "Photography": "Photography",
+      "Health": "Health",
+      "Literature": "Literature"
+    }
+  },
+  "lessonContent": {
+    "69c1e609b34b7671d0540ccf": {
+      "title": "Intro to Poetry",
+      "description": "Learn how to write expressive and creative poetry"
+    },
+    "69c1e5d6b34b7671d0540cb3": {
+      "title": "Grammar Fundamentals",
+      "description": "Understand basic grammar rules and sentence structure"
+    },
+    "69c1e59bb34b7671d0540c8f": {
+      "title": "Story Writing Basics",
+      "description": "Learn how to build engaging stories and characters"
+    },
+    "69c1e56cb34b7671d0540c75": {
+      "title": "Managing Stress",
+      "description": "Learn techniques to manage stress and improve mental"
+    },
+    "69c1e534b34b7671d0540c53": {
+      "title": "Healthy Nutrition",
+      "description": "Understand balanced diets and how to plan your meals"
+    },
+    "69c1e4f3b34b7671d0540c19": {
+      "title": "Workout Fundamentals",
+      "description": "Learn the basics of strength training and fitness routines"
+    },
+    "69c1e4b8b34b7671d0540bfb": {
+      "title": "Lightroom Basics",
+      "description": "Edit and enhance photos using Lightroom tools and presets"
+    },
+    "69c1e47ab34b7671d0540bd9": {
+      "title": "Portrait Lighting",
+      "description": "Understand how to use lighting to capture professional"
+    },
+    "69c1e444b34b7671d0540bbb": {
+      "title": "Camera Basics",
+      "description": "Learn how to use camera settings like ISO, shutter speed, and aperture"
+    },
+    "69c1e40ab34b7671d0540b93": {
+      "title": "Content Basics",
+      "description": "Understand content marketing"
+    }
+  },
+  "exams": {
+    "availableExams": "Available Exams",
+    "testKnowledge": "Test your knowledge and earn your certificates.",
+    "min": "Min",
+    "ques": "Ques",
+    "marks": "Marks",
+    "pass": "Pass",
+    "startExam": "Start Exam",
+    "noExams": "No exams available",
+    "noExamsDesc": "No exams are currently available.",
+    "examDefaultDesc": "Take this exam to evaluate your understanding of the course materials.",
+    "examContent": {
+      "69c31871cb8cb805465b831c": {
+        "title": "Python Exam",
+        "description": "Test your Python programming skills from basics to advanced concepts."
+      },
+      "69c31390cb8cb805465b7ba8": {
+        "title": "Node.js Exam",
+        "description": "Comprehensive assessment of your server-side skills with Node.js and Express."
+      },
+      "69c310fdcb8cb805465b7658": {
+        "title": "React Exam",
+        "description": "Test your knowledge of React library including hooks and state management."
+      },
+      "69c2f8a6cb8cb805465b70a7": {
+        "title": "Full Stack Exam",
+        "description": "A comprehensive challenge covering frontend, backend, and database technologies."
+      }
+    }
+  },
+  "profile": {
+    "information": "Information",
+    "results": "Exam Results",
+    "security": "Security & Privacy",
+    "logoutSession": "Logout Session",
+    "joined": "Joined",
+    "logoutSuccess": "Logged out successfully",
+    "guest": "Guest User",
+    "logout": "Logout",
+    "profileNav": "Profile",
+    "resultsNav": "Results",
+    "securityNav": "Security"
+  },
+  "result": {
+    "noResults": "No results found",
+    "noResultsDesc": "You haven't taken any exams yet.",
+    "goToExams": "Go to Exams",
+    "correctAnswers": "Correct Answers",
+    "pointsEarned": "Points Earned",
+    "wrongAnswers": "Wrong Answers",
+    "total": "Total",
+    "questions": "Questions",
+    "checkMistakes": "Check mistakes",
+    "congratulations": "Congratulations!",
+    "keepTrying": "Keep Trying!",
+    "passed": "passed",
+    "failed": "failed",
+    "resultStatus": "You {status} the {title}",
+    "yourScore": "Your Score",
+    "greatJob": "Great job!",
+    "dontGiveUp": "Don't give up!",
+    "passMessage": "You have successfully completed this assessment. Your certificate is ready to be shared.",
+    "failMessage": "Review your materials and try again to improve your score and earn your certification.",
+    "retake": "Retake Exam",
+    "backHome": "Back to Home",
+    "exam": "Exam"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "loginTitle": "Welcome back!",
+    "registerTitle": "Create your account",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "userName": "User name",
+    "userNamePlaceholder": "Enter your user name",
+    "loggingIn": "Logging in...",
+    "creatingAccount": "Creating account...",
+    "loginSuccess": "Login successful!",
+    "loginFailed": "Login failed. Please try again.",
+    "registerSuccess": "Account created successfully!",
+    "registerFailed": "Registration failed. Please try again.",
+    "unexpectedError": "An unexpected error occurred. Please try again later.",
+    "heroTitle": "Empower Your Learning Journey",
+    "heroDesc": "Join thousands of students and start mastering new skills today.",
+    "welcome": "Welcome to Totc!",
+    "authFooter": "Join the world's leading learning platform."
+  },
+  "dashboard": {
+    "title": "LMS Admin",
+    "mainMenu": "Main Menu",
+    "system": "System",
+    "logout": "Logout",
+    "viewProfile": "View Profile",
+    "search": "Search anything...",
+    "lmsDashboard": "LMS Dashboard",
+    "nav": {
+      "dashboard": "Dashboard",
+      "courses": "Courses",
+      "lessons": "Lessons",
+      "categories": "Categories",
+      "exams": "Exams",
+      "blogs": "Blogs",
+      "orders": "Orders",
+      "membership": "Membership",
+      "users": "Users",
+      "settings": "Settings"
+    },
+    "content": {
+      "overview": "Dashboard Overview",
+      "welcome": "Welcome back, {name}! Here's the latest in your academy.",
+      "stats": {
+        "revenue": "Total Revenue",
+        "enrollments": "Total Enrollments",
+        "activeCourses": "Active Courses",
+        "activeStudents": "Active Students"
+      },
+      "activity": {
+        "title": "Learning Activity",
+        "desc": "Track student engagement across courses",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "visual": "Activity Trends Visual"
+      },
+      "updates": {
+        "title": "Recent Updates",
+        "desc": "Academy news and latest actions",
+        "viewAll": "View All Activities"
+      },
+      "enrollments": {
+        "title": "Recent Enrollments",
+        "desc": "Quick view of latest student registrations",
+        "viewAll": "View All"
+      },
+      "table": {
+        "id": "ID",
+        "student": "Student",
+        "course": "Course",
+        "date": "Date",
+        "amount": "Amount",
+        "status": "Status",
+        "paid": "Paid",
+        "pending": "Pending"
+      }
+    }
+  },
+  "common": {
+    "back": "Back",
+    "loading": "Loading...",
+    "search": "Search...",
+    "noResults": "No results found"
+  },
+  "courseContent": {
+    "69c0a422ad9d7a78e73d63eb": {
+      "title": "Poetry Writing Workshop",
+      "description": "Learn how to write expressive and impactful poetry"
+    },
+    "69c0a3faad9d7a78e73d63da": {
+      "title": "English Grammar Essentials",
+      "description": "Master grammar rules and improve writing accuracy"
+    },
+    "69c0a3d5ad9d7a78e73d63c9": {
+      "title": "Creative Writing Masterclass",
+      "description": "Improve your writing skills and learn storytelling techniques"
+    },
+    "69c0a39fad9d7a78e73d63b8": {
+      "title": "Mental Health Awareness",
+      "description": "Learn strategies to manage stress, anxiety, and mental well-being"
+    },
+    "69c0a379ad9d7a78e73d63a7": {
+      "title": "Nutrition and Diet Planning",
+      "description": "Understand healthy eating habits and create balanced diet plans"
+    },
+    "69c0a32aad9d7a78e73d6385": {
+      "title": "Fitness Training Basics",
+      "description": "Learn workout routines, strength training, and fitness planning"
+    },
+    "69c0a2f4ad9d7a78e73d6374": {
+      "title": "Photo Editing with Lightroom",
+      "description": "Edit and enhance your photos using Adobe Lightroom tools"
+    },
+    "69c0a2c1ad9d7a78e73d6363": {
+      "title": "Portrait Photography",
+      "description": "Capture professional portraits using lighting and posing techniques"
+    },
+    "69c0a297ad9d7a78e73d634c": {
+      "title": "Photography Basics",
+      "description": "Learn camera settings, lighting, and composition for stunning photos"
+    },
+    "69c0a255ad9d7a78e73d633b": {
+      "title": "Content Marketing Strategy",
+      "description": "Create engaging content that drives traffic and converts customers"
+    },
+    "69c0a223ad9d7a78e73d6324": {
+      "title": "Social Media Marketing",
+      "description": "Grow your brand using Facebook, Instagram, and TikTok marketing strategies"
+    },
+    "69c0a1f6ad9d7a78e73d6313": {
+      "title": "SEO Mastery Course",
+      "description": "Optimize websites for search engines and improve organic traffic ranking"
+    },
+    "69c0a1cfad9d7a78e73d6302": {
+      "title": "Digital Marketing Complete Guide",
+      "description": "Learn SEO, social media marketing, email campaigns, and online advertising"
+    },
+    "69c0a18dad9d7a78e73d62f1": {
+      "title": "Financial Analysis Fundamentals",
+      "description": "Understand financial statements, budgeting, and investment decision-making"
+    },
+    "69c0a162ad9d7a78e73d62e0": {
+      "title": "Project Management Professional",
+      "description": "Master project planning, execution, and management using modern methodologies"
+    },
+    "69c0a12dad9d7a78e73d62cf": {
+      "title": "Entrepreneurship Basics",
+      "description": "Learn how to start and manage your own business from idea to execution"
+    },
+    "69c0a0fcad9d7a78e73d62be": {
+      "title": "Statistics for Data Science",
+      "description": "Understand probability, distributions, and statistical tests used in data science"
+    },
+    "69c0a0caad9d7a78e73d62a7": {
+      "title": "Machine Learning A-Z",
+      "description": "Learn supervised and unsupervised learning techniques with real-world datasets"
+    },
+    "69c0a06dad9d7a78e73d6290": {
+      "title": "Data Analysis with Python",
+      "description": "Analyze data using pandas, NumPy, and visualization libraries to extract insights"
+    },
+    "69c0a014ad9d7a78e73d6279": {
+      "title": "Node.js API Development",
+      "description": "Build scalable RESTful APIs using Node.js, Express, and MongoDB"
+    },
+    "69c09fe2ad9d7a78e73d6268": {
+      "title": "React from Scratch",
+      "description": "Learn React fundamentals and build dynamic web applications with hooks and components"
+    },
+    "69c09fa4ad9d7a78e73d6257": {
+      "title": "Full Stack Web Development",
+      "description": "Become a full stack developer by learning frontend and backend technologies including Node.js and React"
+    },
+    "69c09f66ad9d7a78e73d6240": {
+      "title": "Graphic Design Essentials",
+      "description": "Understand color theory, typography, and layout to create professional visual designs"
+    },
+    "69c09f2aad9d7a78e73d6229": {
+      "title": "Adobe Photoshop Masterclass",
+      "description": "Master Photoshop tools and techniques for photo editing, retouching, and digital design projects"
+    },
+    "69c09eb7ad9d7a78e73d6206": {
+      "title": "UI/UX Design Fundamentals",
+      "description": "Learn the basics of user interface and user experience design, including wireframing, prototyping, and usability principles"
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.",
+    "backHome": "Back to Home",
+    "contactSupport": "Contact Support"
+  }
+}

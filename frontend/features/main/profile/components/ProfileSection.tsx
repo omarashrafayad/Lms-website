@@ -92,7 +92,7 @@ export default function ProfileSection({ user }: { user: User }) {
 
   return (
     <Card className="border-none shadow-none bg-transparent lg:border lg:bg-card lg:shadow-sm">
-      <CardHeader className="px-0 lg:px-6">
+      <CardHeader className="px-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <CardTitle className="text-xl md:text-2xl font-bold">Profile Information</CardTitle>
@@ -166,7 +166,7 @@ export default function ProfileSection({ user }: { user: User }) {
         </div>
       </CardHeader>
 
-      <CardContent className="px-0 lg:px-6 mt-8">
+      <CardContent className="px-6 mt-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           <div className="p-4 rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 transition-all hover:bg-white dark:hover:bg-zinc-900 hover:shadow-md">
             <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-1">Full Name</p>

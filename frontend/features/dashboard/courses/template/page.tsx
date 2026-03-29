@@ -35,7 +35,7 @@ const courseSchema = z.object({
     level: z.enum(['Beginner', 'Intermediate', 'Advanced', 'All Levels']).default('Beginner'),
     language: z.string().default('Arabic'),
     enrolledCount: z.coerce.number().min(0).optional(),
-    whatYouWillLearn: z.string().optional(), // We'll convert this to array
+    whatYouWillLearn: z.string().optional(), 
     imageCover: z.any().optional(),
 })
 

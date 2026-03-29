@@ -2,7 +2,7 @@ import Blog from '../model/blogModel';
 import * as factory from './handleFactory';
 import asyncHandler from 'express-async-handler';
 import sharp from 'sharp';
-import { v4 as uuidv4 } from 'uuid';
+import crypto from 'crypto';
 import { uploadSingleImage } from '../middlewares/uploadImageMiddleware';
 
 export const uploadBlogImage = uploadSingleImage('imageCover');
@@ -10,7 +10,7 @@ export const uploadBlogImage = uploadSingleImage('imageCover');
 export const resizeBlogImage = asyncHandler(async (req, res, next) => {
     if (!req.file) return next();
 
-    const filename = `blog-${uuidv4()}-${Date.now()}.jpeg`;
+    const filename = `blog-${crypto.randomUUID()}-${Date.now()}.jpeg`;
 
     await sharp(req.file.buffer)
         .resize(1200, 800)

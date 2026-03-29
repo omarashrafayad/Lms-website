@@ -85,17 +85,10 @@ userSchema.pre('save', async function () {
     if (!this.isModified('password')) return;
     this.password = await bcrypt.hash(this.password, 12);
 });
-// userSchema.pre(/^find/, function () {
-//     (this as any).populate({
-//         path: 'wishlist',
-//         select: 'title -_id',
-//     });
-
-// });
 
 const setImageURL = (doc: IUser) => {
     if (doc.profileImg) {
-        const imgUrl = `${process.env.BASE_URL}/user/${doc.profileImg}`
+        const imgUrl = `${process.env.BASE_URL}/users/${doc.profileImg}`
         doc.profileImg = imgUrl
     }
 }

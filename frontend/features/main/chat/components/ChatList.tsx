@@ -1,8 +1,12 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { formatDistanceToNow } from "date-fns";
+import { enUS, arSA } from "date-fns/locale";
 import { IConversation } from "../types/chat.types";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/stores/useAuthStore";
+import { useLocale, useTranslations } from "next-intl";
 
 interface ChatListProps {
   conversations: IConversation[];
@@ -11,8 +15,12 @@ interface ChatListProps {
 }
 
 export default function ChatList({ conversations, selectedId, onSelect }: ChatListProps) {
+  const t = useTranslations("chat");
+  const locale = useLocale();
   const user = useAuthStore((state) => state.user);
   const currentUserId = user?._id;
+
+  const getLocaleObj = () => (locale === "ar" ? arSA : enUS);
 
   return (
     <div className="flex flex-col gap-1">
@@ -25,10 +33,10 @@ export default function ChatList({ conversations, selectedId, onSelect }: ChatLi
             key={conv._id}
             onClick={() => onSelect(conv._id)}
             className={cn(
-              "flex items-center gap-4 p-4 rounded-[1.5rem] transition-all text-left",
-              isActive 
-                ? "bg-primary text-white shadow-xl shadow-primary/20 scale-[1.02]" 
-                : "hover:bg-slate-50 text-slate-600"
+              "flex items-center gap-4 p-4 rounded-[1.5rem] transition-all text-left rtl:text-right rtl:flex-row-reverse",
+              isActive
+                ? "bg-primary text-white shadow-xl shadow-primary/20 scale-[1.02]"
+                : "hover:bg-muted text-foreground"
             )}
           >
             <Avatar className="h-12 w-12 border-2 border-white/20">
@@ -38,14 +46,17 @@ export default function ChatList({ conversations, selectedId, onSelect }: ChatLi
               </AvatarFallback>
             </Avatar>
             <div className="flex-1 overflow-hidden">
-              <div className="flex justify-between items-baseline mb-1">
+              <div className="flex justify-between items-baseline mb-1 rtl:flex-row-reverse">
                 <p className="font-bold truncate">{otherParticipant?.name}</p>
-                <span className={cn("text-[9px] font-bold uppercase", isActive ? "text-white/60" : "text-slate-400")}>
-                  {formatDistanceToNow(new Date(conv.updatedAt), { addSuffix: true })}
+                <span className={cn("text-[9px] font-bold uppercase", isActive ? "text-white/60" : "text-muted-foreground")}>
+                  {formatDistanceToNow(new Date(conv.updatedAt), { 
+                    addSuffix: true,
+                    locale: getLocaleObj()
+                  })}
                 </span>
               </div>
-              <p className={cn("text-xs truncate", isActive ? "text-white/80" : "text-slate-400")}>
-                {conv.lastMessage?.content || "No messages yet"}
+              <p className={cn("text-xs truncate", isActive ? "text-white/80" : "text-muted-foreground")}>
+                {conv.lastMessage?.content || t("noMessages")}
               </p>
             </div>
           </button>

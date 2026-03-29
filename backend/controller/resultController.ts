@@ -6,7 +6,7 @@ import ApiError from '../utils/apiError';
 
 export const submitExam = asyncHandler(async (req, res, next) => {
     const { examId, answers } = req.body;
-    const exam = await Exam.findById(examId);
+    const exam = await Exam.findById(examId).select('+questions.correctAnswer');
 
     if (!exam) return next(new ApiError('Exam not found', 404));
 

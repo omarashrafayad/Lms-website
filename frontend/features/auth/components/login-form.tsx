@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,8 +10,10 @@ import { loginAction } from "@/features/auth/api/auth";
 import { toast } from "sonner";
 import { Form } from "@/components/ui/form";
 import { UniInput } from "@/components/shared/UniInput";
+import { useTranslations } from "next-intl";
 
 export function LoginForm() {
+    const t = useTranslations("auth");
     const router = useRouter();
 
     const form = useForm<loginFormData>({
@@ -34,14 +35,14 @@ export function LoginForm() {
         try {
             const res = await loginAction(data);
             if (res?.success) {
-                toast.success("Login successful!");
+                toast.success(t("loginSuccess"));
                 router.push("/");
                 router.refresh();
             } else {
-                toast.error(res?.error || "Login failed. Please try again.");
+                toast.error(res?.error || t("loginFailed"));
             }
         } catch (error) {
-            toast.error("An unexpected error occurred. Please try again later.");
+            toast.error(t("unexpectedError"));
         }
     };
 
@@ -51,8 +52,8 @@ export function LoginForm() {
                 <UniInput
                     control={control}
                     name="email"
-                    label="Email Address"
-                    placeholder="Enter your email"
+                    label={t("email")}
+                    placeholder={t("emailPlaceholder")}
                     type="email"
                     required
                 />
@@ -60,24 +61,24 @@ export function LoginForm() {
                 <UniInput
                     control={control}
                     name="password"
-                    label="Password"
-                    placeholder="Enter your password"
+                    label={t("password")}
+                    placeholder={t("passwordPlaceholder")}
                     type="password"
                     required
                 />
 
                 <Button
                     type="submit"
-                    className="h-12 w-full rounded-full bg-primary text-white shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl active:scale-[0.98]"
+                    className="h-12 w-full rounded-full bg-primary text-white shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl active:scale-[0.98] rtl:flex-row-reverse"
                     disabled={isSubmitting}
                 >
                     {isSubmitting ? (
                         <>
-                            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                            Logging in...
+                            <Loader2 className="mr-2 rtl:ml-2 rtl:mr-0 h-5 w-5 animate-spin" />
+                            {t("loggingIn")}
                         </>
                     ) : (
-                        "Login"
+                        t("login")
                     )}
                 </Button>
             </form>

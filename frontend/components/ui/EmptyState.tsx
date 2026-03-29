@@ -36,7 +36,7 @@ export default function EmptyState({
             </p>
 
             {actionHref ? (
-                <Button render={<Link href={actionHref} />}>
+                <Button nativeButton={false} render={<Link href={actionHref} />}>
                     {actionLabel}
                 </Button>
             ) : onAction ? (
