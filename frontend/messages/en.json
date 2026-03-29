@@ -9,7 +9,8 @@
     "signUp": "Sign Up",
     "profile": "Profile",
     "brand": "TOTC",
-    "Dashboard":"Dashboard"
+    "Dashboard":"Dashboard",
+    "about": "About Us"
   },
   "hero": {
     "title": "Studying Online is now much easier",
@@ -45,8 +46,8 @@
     "courses": "Courses",
     "exams": "Exams",
     "tech": "Class Technologies Inc.",
-    "messageSent": "Message sent successfully"
-
+    "messageSent": "Message sent successfully",
+    "about": "About Us"
   },
   "whatIs": {
     "title": "What is",
@@ -562,5 +563,29 @@
     "description": "Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.",
     "backHome": "Back to Home",
     "contactSupport": "Contact Support"
+  },
+  "aboutUs": {
+    "title": "About Our Academy",
+    "subtitle": "Empowering learners through world-class online education.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "To provide high-quality, accessible education to everyone, everywhere, helping them master the skills of tomorrow.",
+    "storyTitle": "Our Story",
+    "storyDesc": "Founded in 2024, TOTC has grown into a leading platform for digital skills and professional development.",
+    "values": {
+      "excellence": "Excellence",
+      "innovation": "Innovation",
+      "community": "Community"
+    },
+    "excellenceDesc": "We strive for nothing less than absolute quality in every course we deliver.",
+    "principlesBadge": "Our Core Principles",
+    "whyTitle": "Why Choose TOTC?",
+    "communityTitle": "Community",
+    "innovationTitle": "Innovation",
+    "qualityTitle": "Quality",
+    "trustTitle": "Trust",
+    "communityDesc": "Join a global network of passionate learners.",
+    "innovationDesc": "Learn with the latest tools and interactive tech.",
+    "qualityDesc": "Expert instructors from industry-leading companies.",
+    "trustDesc": "Verifiable certifications recognized worldwide."
   }
 }

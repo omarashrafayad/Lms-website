@@ -1,6 +1,6 @@
 "use client";
 
-import { X, User, LogIn, Home, BookOpen, MessageSquare, FileText, UsbIcon } from "lucide-react";
+import { X, User, LogIn, Home, BookOpen, MessageSquare, FileText, UsbIcon, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
@@ -26,6 +26,7 @@ export default function MobileMenu({ isOpen, onClose, token, user, navLinks }: M
       case "/chat": return <MessageSquare className="size-5" />;
       case "/dashboard": return <UsbIcon className="size-5" />;
       case "/exams": return <FileText className="size-5" />;
+      case "/about": return <Info className="size-5" />;
       case "/profile": return <User className="size-5" />;
       default: return null;
     }

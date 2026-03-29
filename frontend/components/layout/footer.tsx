@@ -60,6 +60,7 @@ export function Footer() {
             <Link href="/exams" className="hover:text-white transition-colors">
               {t("exams")}
             </Link>
+           
           </div>
           <p className="text-sm font-medium">© 2026 {t("tech")}</p>
         </div>

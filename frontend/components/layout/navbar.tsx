@@ -24,7 +24,7 @@ export function Navbar() {
     logout();
     router.push("/auth");
   };
-  type AppRoute = "/" | "/courses" | "/chat" | "/exams" | "/dashboard";
+  type AppRoute = "/" | "/courses" | "/chat" | "/exams" | "/dashboard" | "/about";
   const navLinks: { href: AppRoute; label: string }[] = [
     { href: "/", label: t("home") },
     { href: "/courses", label: t("courses") },
@@ -33,6 +33,7 @@ export function Navbar() {
       : []),
     { href: "/chat", label: t("chat") },
     { href: "/exams", label: t("exams") },
+    { href: "/about", label: t("about") },
   ];
 
   return (

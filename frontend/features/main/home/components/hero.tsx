@@ -37,7 +37,7 @@ export function Hero() {
                 <div className={`flex h-14 w-14 items-center justify-center rounded-full bg-white text-primary shadow-xl ${locale === "ar" ? "ml-4 flex-row-reverse" : ""}`}>
                   <Play className="fill-current"/>
                 </div>
-                <Link href="/about-us">{t("watchHow")}</Link>
+                <Link href="/about">{t("watchHow")}</Link>
               </button>
             </div>
           </motion.div>
