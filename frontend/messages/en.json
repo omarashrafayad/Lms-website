@@ -207,47 +207,59 @@
       "Literature": "Literature"
     }
   },
-  "lessonContent": {
-    "69c1e609b34b7671d0540ccf": {
-      "title": "Intro to Poetry",
-      "description": "Learn how to write expressive and creative poetry"
-    },
-    "69c1e5d6b34b7671d0540cb3": {
-      "title": "Grammar Fundamentals",
-      "description": "Understand basic grammar rules and sentence structure"
-    },
-    "69c1e59bb34b7671d0540c8f": {
-      "title": "Story Writing Basics",
-      "description": "Learn how to build engaging stories and characters"
-    },
-    "69c1e56cb34b7671d0540c75": {
-      "title": "Managing Stress",
-      "description": "Learn techniques to manage stress and improve mental"
-    },
-    "69c1e534b34b7671d0540c53": {
-      "title": "Healthy Nutrition",
-      "description": "Understand balanced diets and how to plan your meals"
-    },
-    "69c1e4f3b34b7671d0540c19": {
-      "title": "Workout Fundamentals",
-      "description": "Learn the basics of strength training and fitness routines"
-    },
-    "69c1e4b8b34b7671d0540bfb": {
-      "title": "Lightroom Basics",
-      "description": "Edit and enhance photos using Lightroom tools and presets"
-    },
-    "69c1e47ab34b7671d0540bd9": {
-      "title": "Portrait Lighting",
-      "description": "Understand how to use lighting to capture professional"
-    },
-    "69c1e444b34b7671d0540bbb": {
-      "title": "Camera Basics",
-      "description": "Learn how to use camera settings like ISO, shutter speed, and aperture"
-    },
-    "69c1e40ab34b7671d0540b93": {
-      "title": "Content Basics",
-      "description": "Understand content marketing"
-    }
+  "lessonTitle": {
+    "Platforms Overview": "Platforms Overview",
+    "SEO Basics": "SEO Basics",
+    "Marketing Basics": "Marketing Basics",
+    "Intro to Finance": "Intro to Finance",
+    "Project Basics": "Project Basics",
+    "Startup Ideas": "Startup Ideas",
+    "Basic Statistics": "Basic Statistics",
+    "Intro to ML": "Intro to ML",
+    "Python Basics": "Python Basics",
+    "Intro to Nodejs": "Intro to Node.js",
+    "React Introduction": "React Introduction",
+    "Intro to Full Stack": "Intro to Full Stack",
+    "Design Basics": "Design Basics",
+    "Photo Editing Basics": "Photo Editing Basics",
+    "Intro to UIUX": "Intro to UI/UX",
+    "Intro to Poetry": "Intro to Poetry",
+    "Grammar Fundamentals": "Grammar Fundamentals",
+    "Story Writing Basics": "Story Writing Basics",
+    "Managing Stress": "Managing Stress",
+    "Healthy Nutrition": "Healthy Nutrition",
+    "Workout Fundamentals": "Workout Fundamentals",
+    "Lightroom Basics": "Lightroom Basics",
+    "Portrait Lighting": "Portrait Lighting",
+    "Camera Basics": "Camera Basics",
+    "Content Basics": "Content Basics"
+  },
+  "lessonDescription": {
+    "Learn major social platforms": "Learn major social platforms",
+    "Understand search engines": "Understand search engines",
+    "Intro to digital marketing": "Intro to digital marketing",
+    "Basics of financial analysis": "Basics of financial analysis",
+    "Understand project lifecycle": "Understand project lifecycle",
+    "How to find business ideas": "How to find business ideas",
+    "Learn mean, median, and mode": "Learn mean, median, and mode",
+    "Understand ML concepts": "Understand ML concepts",
+    "Learn Python fundamentals": "Learn Python fundamentals",
+    "Learn backend basics": "Learn backend basics",
+    "Understand React fundamentals": "Understand React fundamentals",
+    "Overview of frontend and backend": "Overview of frontend and backend",
+    "Understand visual design fundamentals": "Understand visual design fundamentals",
+    "Learn essential editing techniques": "Learn essential editing techniques",
+    "Learn the basics of UI and UX design": "Learn the basics of UI and UX design",
+    "Learn how to write expressive and creative poetry": "Learn how to write expressive and creative poetry",
+    "Understand basic grammar rules and sentence structure": "Understand basic grammar rules and sentence structure",
+    "Learn how to build engaging stories and characters": "Learn how to build engaging stories and characters",
+    "Learn techniques to manage stress and improve mental": "Learn techniques to manage stress and improve mental",
+    "Understand balanced diets and how to plan your meals": "Understand balanced diets and how to plan your meals",
+    "Learn the basics of strength training and fitness routines": "Learn the basics of strength training and fitness routines",
+    "Edit and enhance photos using Lightroom tools and presets": "Edit and enhance photos using Lightroom tools and presets",
+    "Understand how to use lighting to capture professional": "Understand how to use lighting to capture professional",
+    "Learn how to use camera settings like ISO, shutter speed, and aperture": "Learn how to use camera settings like ISO, shutter speed, and aperture",
+    "Understand content marketing": "Understand content marketing"
   },
   "exams": {
     "availableExams": "Available Exams",
@@ -290,7 +302,43 @@
     "logout": "Logout",
     "profileNav": "Profile",
     "resultsNav": "Results",
-    "securityNav": "Security"
+    "securityNav": "Security",
+    "infoTitle": "Profile Information",
+    "infoDesc": "Manage your personal details and account settings.",
+    "editBtn": "Edit Profile",
+    "editTitle": "Edit Profile",
+    "editDesc": "Update your account information below.",
+    "changePhoto": "Tap to change photo",
+    "formName": "Name",
+    "namePlaceholder": "Enter your name",
+    "formEmail": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "formPhone": "Phone Number",
+    "phonePlaceholder": "Enter your phone",
+    "cancel": "Cancel",
+    "saving": "Saving...",
+    "save": "Save Changes",
+    "fullName": "Full Name",
+    "accountStatus": "Account Status",
+    "notProvided": "Not provided",
+    "activeStatus": "Active Account",
+    "inactiveStatus": "Inactive",
+    "successMessage": "Profile updated successfully!",
+    "failedMessage": "Failed to update profile",
+    "unexpectedError": "An unexpected error occurred.",
+    "securityTitle": "Security Settings",
+    "securityDesc": "Manage your account security and authentication methods.",
+    "changePasswordTitle": "Change Password",
+    "changePasswordDesc": "We recommend using a strong password that you don't use elsewhere.",
+    "currentPasswordLabel": "Current Password",
+    "currentPasswordPlaceholder": "Enter your current password",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "Enter your new password",
+    "confirmPasswordLabel": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Enter your confirm new password",
+    "updatePasswordBtn": "Update Password",
+    "passwordSuccess": "Password updated successfully!",
+    "passwordError": "Failed to update password."
   },
   "result": {
     "noResults": "No results found",
@@ -314,7 +362,9 @@
     "failMessage": "Review your materials and try again to improve your score and earn your certification.",
     "retake": "Retake Exam",
     "backHome": "Back to Home",
-    "exam": "Exam"
+    "exam": "Exam",
+    "resultsHeaderDesc": "Track your progress and review your past exam performances.",
+    "examResultLabel": "Exam Result"
   },
   "auth": {
     "login": "Login",

@@ -15,7 +15,8 @@ import LoadingSpinner from "@/components/shared/LoadingSpinner";
 export default function CourseDetailsPage() {
   const t = useTranslations("courseDetails");
   const tContent = useTranslations("courseContent");
-  const tLessonContent = useTranslations("lessonContent");
+  const tLessonTitle = useTranslations("lessonTitle");
+  const tLessonDescription = useTranslations("lessonDescription");
   const locale = useLocale();
   const { id } = useParams() as { id: string };
   const { data: courseData, isLoading } = useCourse(id);
@@ -77,7 +78,8 @@ export default function CourseDetailsPage() {
             course={course}
             t={t}
             tContent={tContent}
-            tLessonContent={tLessonContent}
+            tLessonTitle={tLessonTitle}
+            tLessonDescription={tLessonDescription}
             locale={locale}
             activeTab={activeTab}
             setActiveTab={setActiveTab}

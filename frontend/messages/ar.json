@@ -206,47 +206,59 @@
       "Literature": "أدب"
     }
   },
-  "lessonContent": {
-    "69c1e609b34b7671d0540ccf": {
-      "title": "مقدمة في الشعر",
-      "description": "تعلم كيفية كتابة الشعر التعبيري والإبداعي"
-    },
-    "69c1e5d6b34b7671d0540cb3": {
-      "title": "أساسيات القواعد",
-      "description": "افهم القواعد الأساسية وهيكل الجملة"
-    },
-    "69c1e59bb34b7671d0540c8f": {
-      "title": "أساسيات كتابة القصص",
-      "description": "تعلم كيفية بناء قصص وشخصيات جذابة"
-    },
-    "69c1e56cb34b7671d0540c75": {
-      "title": "إدارة التوتر",
-      "description": "تعلم تقنيات إدارة التوتر وتحسين الصحة العقلية"
-    },
-    "69c1e534b34b7671d0540c53": {
-      "title": "التغذية الصحية",
-      "description": "افهم الأنظمة الغذائية المتوازنة وكيفية تخطيط وجباتك"
-    },
-    "69c1e4f3b34b7671d0540c19": {
-      "title": "أساسيات التمارين الرياضية",
-      "description": "تعلم أساسيات تمارين القوة وروتين اللياقة البدنية"
-    },
-    "69c1e4b8b34b7671d0540bfb": {
-      "title": "أساسيات لايت روم",
-      "description": "قم بتحرير وتحسين الصور باستخدام أدوات وإعدادات لايت روم"
-    },
-    "69c1e47ab34b7671d0540bd9": {
-      "title": "إضاءة البورتريه",
-      "description": "افهم كيفية استخدام الإضاءة لالتقاط صور احترافية"
-    },
-    "69c1e444b34b7671d0540bbb": {
-      "title": "أساسيات الكاميرا",
-      "description": "تعلم كيفية استخدام إعدادات الكاميرا مثل ISO وسرعة الغالق وفتحة العدسة"
-    },
-    "69c1e40ab34b7671d0540b93": {
-      "title": "أساسيات المحتوى",
-      "description": "افهم أساسيات تسويق المحتوى"
-    }
+  "lessonTitle": {
+    "Platforms Overview": "نظرة عامة على المنصات",
+    "SEO Basics": "أساسيات السيو (SEO)",
+    "Marketing Basics": "أساسيات التسويق",
+    "Intro to Finance": "مقدمة في التمويل",
+    "Project Basics": "أساسيات المشاريع",
+    "Startup Ideas": "أفكار المشاريع الناشئة",
+    "Basic Statistics": "الإحصاء الأساسي",
+    "Intro to ML": "مقدمة في تعلم الآلة",
+    "Python Basics": "أساسيات بايثون",
+    "Intro to Nodejs": "مقدمة في Node.js",
+    "React Introduction": "مقدمة في React",
+    "Intro to Full Stack": "مقدمة في التطوير المتكامل",
+    "Design Basics": "أساسيات التصميم",
+    "Photo Editing Basics": "أساسيات تعديل الصور",
+    "Intro to UIUX": "مقدمة في UI/UX",
+    "Intro to Poetry": "مقدمة في الشعر",
+    "Grammar Fundamentals": "أساسيات القواعد",
+    "Story Writing Basics": "أساسيات كتابة القصص",
+    "Managing Stress": "إدارة التوتر",
+    "Healthy Nutrition": "التغذية الصحية",
+    "Workout Fundamentals": "أساسيات التمارين الرياضية",
+    "Lightroom Basics": "أساسيات لايت روم",
+    "Portrait Lighting": "إضاءة البورتريه",
+    "Camera Basics": "أساسيات الكاميرا",
+    "Content Basics": "أساسيات المحتوى"
+  },
+  "lessonDescription": {
+    "Learn major social platforms": "تعلم كيفية التعامل مع كبرى منصات التواصل الاجتماعي",
+    "Understand search engines": "فهم كيفية عمل محركات البحث وتحسين الظهور",
+    "Intro to digital marketing": "مقدمة شاملة في مبادئ التسويق الرقمي الحديث",
+    "Basics of financial analysis": "أساسيات تحليل البيانات والتقارير المالية",
+    "Understand project lifecycle": "فهم دورة حياة المشروع من البداية وحتى التنفيذ",
+    "How to find business ideas": "كيفية استنباط وتقييم أفكار المشاريع الناشئة",
+    "Learn mean, median, and mode": "تعرف على مفاهيم المتوسط والوسيط والمنوال في الإحصاء",
+    "Understand ML concepts": "فهم المفاهيم الأساسية لتعلم الآلة والذكاء الاصطناعي",
+    "Learn Python fundamentals": "تعلم أساسيات لغة البرمجة بايثون البرمجية",
+    "Learn backend basics": "تعلم أساسيات تطوير الخوادم وقواعد البيانات",
+    "Understand React fundamentals": "فهم أساسيات مكتبة ريأكت وبناء المكونات",
+    "Overview of frontend and backend": "نظرة عامة شاملة على تطوير الواجهة الأمامية والخلفية",
+    "Understand visual design fundamentals": "فهم المبادئ الأساسية للتصميم البصري ونظرية الألوان",
+    "Learn essential editing techniques": "تعلم التقنيات الأساسية لتحرير الصور باحترافية",
+    "Learn the basics of UI and UX design": "تعلم القواعد الأساسية لتصميم واجهات وتجربة المستخدم",
+    "Learn how to write expressive and creative poetry": "تعلم كيفية كتابة الشعر التعبيري والإبداعي",
+    "Understand basic grammar rules and sentence structure": "افهم القواعد الأساسية وهيكل الجملة",
+    "Learn how to build engaging stories and characters": "تعلم كيفية بناء قصص وشخصيات جذابة",
+    "Learn techniques to manage stress and improve mental": "تعلم تقنيات إدارة التوتر وتحسين الصحة العقلية",
+    "Understand balanced diets and how to plan your meals": "افهم الأنظمة الغذائية المتوازنة وكيفية تخطيط وجباتك",
+    "Learn the basics of strength training and fitness routines": "تعلم أساسيات تمارين القوة وروتين اللياقة البدنية",
+    "Edit and enhance photos using Lightroom tools and presets": "قم بتحرير وتحسين الصور باستخدام أدوات وإعدادات لايت روم",
+    "Understand how to use lighting to capture professional": "افهم كيفية استخدام الإضاءة لالتقاط صور احترافية",
+    "Learn how to use camera settings like ISO, shutter speed, and aperture": "تعلم كيفية استخدام إعدادات الكاميرا مثل ISO وسرعة الغالق وفتحة العدسة",
+    "Understand content marketing": "افهم أساسيات تسويق المحتوى"
   },
   "exams": {
     "availableExams": "الاختبارات المتاحة",
@@ -289,7 +301,43 @@
     "logout": "تسجيل خروج",
     "profileNav": "الملف الشخصي",
     "resultsNav": "النتائج",
-    "securityNav": "الأمان"
+    "securityNav": "الأمان",
+    "infoTitle": "معلومات الملف الشخصي",
+    "infoDesc": "إدارة تفاصيلك الشخصية وإعدادات حسابك.",
+    "editBtn": "تعديل الملف الشخصي",
+    "editTitle": "تعديل الملف الشخصي",
+    "editDesc": "قم بتحديث معلومات حسابك أدناه.",
+    "changePhoto": "اضغط لتغيير الصورة",
+    "formName": "الاسم",
+    "namePlaceholder": "أدخل اسمك",
+    "formEmail": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "formPhone": "رقم الهاتف",
+    "phonePlaceholder": "أدخل رقم هاتفك",
+    "cancel": "إلغاء",
+    "saving": "جاري الحفظ...",
+    "save": "حفظ التغييرات",
+    "fullName": "الاسم الكامل",
+    "accountStatus": "حالة الحساب",
+    "notProvided": "غير متوفر",
+    "activeStatus": "حساب نشط",
+    "inactiveStatus": "غير نشط",
+    "successMessage": "تم تحديث الملف الشخصي بنجاح!",
+    "failedMessage": "فشل تحديث الملف الشخصي",
+    "unexpectedError": "حدث خطأ غير متوقع.",
+    "securityTitle": "إعدادات الأمان",
+    "securityDesc": "إدارة أمان حسابك وطرق المصادقة.",
+    "changePasswordTitle": "تغيير كلمة المرور",
+    "changePasswordDesc": "نوصي باستخدام كلمة مرور قوية لا تستخدمها في مكان آخر.",
+    "currentPasswordLabel": "كلمة المرور الحالية",
+    "currentPasswordPlaceholder": "أدخل كلمة المرور الحالية",
+    "newPasswordLabel": "كلمة المرور الجديدة",
+    "newPasswordPlaceholder": "أدخل كلمة المرور الجديدة",
+    "confirmPasswordLabel": "تأكيد كلمة المرور الجديدة",
+    "confirmPasswordPlaceholder": "أكد كلمة المرور الجديدة",
+    "updatePasswordBtn": "تحديث كلمة المرور",
+    "passwordSuccess": "تم تحديث كلمة المرور بنجاح!",
+    "passwordError": "فشل تحديث كلمة المرور."
   },
   "result": {
     "noResults": "لم يتم العثور على نتائج",
@@ -313,7 +361,9 @@
     "failMessage": "راجع موادك وحاول مرة أخرى لتحسين درجتك والحصول على شهادتك.",
     "retake": "إعادة الاختبار",
     "backHome": "العودة للرئيسية",
-    "exam": "اختبار"
+    "exam": "اختبار",
+    "resultsHeaderDesc": "تتبع تقدمك وراجع أداءك في الاختبارات السابقة.",
+    "examResultLabel": "نتيجة الاختبار"
   },
   "auth": {
     "login": "تسجيل الدخول",

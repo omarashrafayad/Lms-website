@@ -45,7 +45,7 @@ export default function ChatInput({ onSend, isLoading }: ChatInputProps) {
           {isLoading ? (
             <Loader2 className="animate-spin" size={18} />
           ) : (
-            <Send size={18} className="rtl:rotate-180" />
+            <Send size={18}  />
           )}
         </Button>
       </div>

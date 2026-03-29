@@ -13,7 +13,10 @@ import { Spinner } from "@/components/ui/spinner";
 import { UniInput } from "@/components/shared/UniInput";
 import { Form } from "@/components/ui/form";
 
+import { useTranslations } from "next-intl";
+
 export default function SecuritySection() {
+  const t = useTranslations("profile");
   const { mutate: updatePassword, isPending } = useUpdatePasswordFormdata();
   const form = useForm<updatePasswordFormData>({
     resolver: zodResolver(updatePasswordSchema),
@@ -30,12 +33,12 @@ export default function SecuritySection() {
   const onSubmit = (data: updatePasswordFormData) => {
     updatePassword(data, {
       onSuccess: () => {
-        toast.success("Password updated successfully!");
+        toast.success(t("passwordSuccess"));
         reset();
       },
       onError: (error: Error) => {
         const axiosError = error as AxiosError<{ message?: string }>;
-        toast.error(axiosError.response?.data?.message || "Failed to update password.");
+        toast.error(axiosError.response?.data?.message || t("passwordError"));
       },
     });
   };
@@ -43,8 +46,8 @@ export default function SecuritySection() {
   return (
     <div className="space-y-8 max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-500 transition-colors">
       <div className="space-y-1">
-        <h2 className="text-3xl font-extrabold tracking-tight dark:text-white">Security Settings</h2>
-        <p className="text-muted-foreground dark:text-slate-400">Manage your account security and authentication methods.</p>
+        <h2 className="text-3xl font-extrabold tracking-tight dark:text-white">{t("securityTitle")}</h2>
+        <p className="text-muted-foreground dark:text-slate-400">{t("securityDesc")}</p>
       </div>
 
       <Card className="border-2 dark:border-slate-800 shadow-lg dark:shadow-2xl bg-card transition-colors duration-300 overflow-hidden">
@@ -54,24 +57,24 @@ export default function SecuritySection() {
               <Lock className="w-6 h-6" />
             </div>
             <div>
-              <CardTitle className="text-xl md:text-2xl font-bold dark:text-white">Change Password</CardTitle>
-              <CardDescription className="dark:text-slate-400 mt-1">We recommend using a strong password that you don't use elsewhere.</CardDescription>
+              <CardTitle className="text-xl md:text-2xl font-bold dark:text-white">{t("changePasswordTitle")}</CardTitle>
+              <CardDescription className="dark:text-slate-400 mt-1">{t("changePasswordDesc")}</CardDescription>
             </div>
           </div>
         </CardHeader>
         <Form {...form}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <CardContent className="space-y-6 pt-8">
-              <UniInput control={control} name="currentPassword" label="Current Password" placeholder="Enter your current password" type="password" className="grid gap-2" />
+              <UniInput control={control} name="currentPassword" label={t("currentPasswordLabel")} placeholder={t("currentPasswordPlaceholder")} type="password" className="grid gap-2" />
               <div className="grid gap-6 sm:grid-cols-2">
-                <UniInput control={control} name="password" label="New Password" placeholder="Enter your new password" type="password" className="grid gap-2" />
-                <UniInput control={control} name="passwordConfirm" label="Confirm New Password" placeholder="Enter your confirm new password" type="password" className="grid gap-2" />
+                <UniInput control={control} name="password" label={t("newPasswordLabel")} placeholder={t("newPasswordPlaceholder")} type="password" className="grid gap-2" />
+                <UniInput control={control} name="passwordConfirm" label={t("confirmPasswordLabel")} placeholder={t("confirmPasswordPlaceholder")} type="password" className="grid gap-2" />
               </div>
             </CardContent>
-            <CardFooter className="bg-muted/30 dark:bg-slate-900/40 border-t dark:border-slate-800 px-6 py-6 flex justify-end transition-colors">
+            <CardFooter className="bg-muted/30 dark:bg-slate-900/40 dark:border-slate-800 px-6 py-6 flex justify-end transition-colors">
               <Button type="submit" disabled={isPending} className="gap-2 px-10 h-12 rounded-xl font-bold uppercase tracking-widest text-xs shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer">
                 {isPending ? <Spinner className="w-4 h-4" /> : <ShieldCheck className="w-5 h-5" />}
-                Update Password
+                {t("updatePasswordBtn")}
               </Button>
             </CardFooter>
           </form>

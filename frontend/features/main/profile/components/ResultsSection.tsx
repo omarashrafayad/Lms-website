@@ -23,7 +23,7 @@ export default function ResultsSection() {
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="space-y-1">
         <h2 className="text-3xl font-extrabold tracking-tight dark:text-white">{tp("results")}</h2>
-        <p className="text-muted-foreground dark:text-slate-400">Track your progress and review your past exam performances.</p>
+        <p className="text-muted-foreground dark:text-slate-400">{t("resultsHeaderDesc")}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -39,7 +39,7 @@ export default function ResultsSection() {
                     {result.status}
                   </Badge>
                 </div>
-                <CardTitle className="mt-4 text-lg line-clamp-1 dark:text-white">{result.exam?.title || "Exam Result"}</CardTitle>
+                <CardTitle className="mt-4 text-lg line-clamp-1 dark:text-white">{result.exam?.title || t("examResultLabel")}</CardTitle>
                 <CardDescription className="dark:text-slate-400">{new Date(result.createdAt).toLocaleDateString()}</CardDescription>
               </CardHeader>
               <CardContent className="pt-6">

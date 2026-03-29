@@ -15,6 +15,7 @@ import ResultsSection from "../components/ResultsSection";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import { useTranslations, useLocale } from "next-intl";
+import LoadingSpinner from "@/components/shared/LoadingSpinner";
 
 export default function ProfilePage() {
   const t = useTranslations("profile");
@@ -30,11 +31,7 @@ export default function ProfilePage() {
   }, []);
 
   if (!hydrated) {
-      return (
-          <div className="flex justify-center items-center h-screen bg-background">
-              <Spinner className="w-10 h-10 text-primary" />
-          </div>
-      );
+      return <LoadingSpinner/>
   }
 
   const userData = user || {
@@ -56,21 +53,21 @@ export default function ProfilePage() {
 
   return (
     <div className="container max-w-7xl mx-auto py-8 px-4 md:px-8 transition-colors duration-300 min-h-screen">
-      <div className="flex flex-col md:flex-row items-center gap-6 mb-10 bg-card p-6 rounded-2xl border shadow-sm rtl:md:flex-row-reverse text-left rtl:text-right">
+      <div className="flex flex-col md:flex-row items-center gap-6 mb-10 bg-card p-6 rounded-2xl border shadow-sm  text-left ">
         <div className="relative">
           <Avatar className="h-32 w-32 border-4 border-card shadow-2xl ring-4 ring-primary/10 transition-colors">
-            <AvatarImage src={userData?.profileImg} alt={userData.name} className="object-cover" />
+            <AvatarImage src={userData?.profileImg || undefined} alt={userData.name} className="object-cover" />
             <AvatarFallback className="text-4xl font-black bg-primary/5 dark:bg-primary/10 text-primary">
               {userData.name?.split(" ").map((n: string) => n[0]).join("").toUpperCase()}
             </AvatarFallback>
           </Avatar>
-          <div className="absolute bottom-2 right-2 rtl:right-auto rtl:left-2 h-6 w-6 bg-emerald-500 border-4 border-card rounded-full shadow-lg" />
+          <div className="absolute bottom-2 right-2  h-6 w-6 bg-emerald-500 border-4 border-card rounded-full shadow-lg" />
         </div>
         <div className="text-center md:text-left rtl:md:text-right space-y-2">
           <h1 className="text-3xl md:text-5xl font-black tracking-tighter text-foreground uppercase">{userData.name}</h1>
           <p className="text-muted-foreground font-bold text-lg">{userData.email}</p>
-          <div className="flex flex-wrap justify-center md:justify-start rtl:md:justify-end gap-4 mt-4">
-             <Badge variant="secondary" className="px-4 py-1.5 rounded-full bg-muted text-muted-foreground font-bold text-[10px] uppercase tracking-widest border-none transition-colors rtl:flex-row-reverse">
+          <div className="flex flex-wrap justify-center md:justify-start  gap-4 mt-4">
+             <Badge variant="secondary" className="px-4 py-1.5 rounded-full bg-muted text-muted-foreground font-bold text-[10px] uppercase tracking-widest border-none transition-colors">
                {t("joined")} {new Date(userData.createdAt).toLocaleDateString(locale === "ar" ? "ar-EG" : "en-US", { month: 'long', year: 'numeric' })}
              </Badge>
              <Badge className="px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-[10px] uppercase tracking-widest border-none">
@@ -89,27 +86,25 @@ export default function ProfilePage() {
               onClick={() => setActiveTab("profile")}
               icon={<UserIcon className="w-5 h-5" />}
               label={t("information")}
-              className="rtl:flex-row-reverse rtl:text-right"
+              
             />
             <NavButton
               active={activeTab === "results"}
               onClick={() => setActiveTab("results")}
               icon={<Trophy className="w-5 h-5" />}
               label={t("results")}
-              className="rtl:flex-row-reverse rtl:text-right"
             />
             <NavButton
               active={activeTab === "security"}
               onClick={() => setActiveTab("security")}
               icon={<ShieldCheck className="w-5 h-5" />}
               label={t("security")}
-              className="rtl:flex-row-reverse rtl:text-right"
             />
           </div>
           <div className="pt-2">
             <Button
               variant="destructive"
-              className="w-full justify-start gap-4 h-14 rounded-2xl px-6 font-black uppercase tracking-widest text-xs hover:scale-[1.02] transition-transform shadow-lg shadow-rose-500/20 rtl:flex-row-reverse rtl:text-right"
+              className="w-full justify-start gap-4 h-14 rounded-2xl px-6 font-black uppercase tracking-widest text-xs hover:scale-[1.02] transition-transform shadow-lg shadow-rose-500/20"
               onClick={handleLogout}
             >
               <LogOut className="w-5 h-5 rtl:rotate-180" />
@@ -119,7 +114,7 @@ export default function ProfilePage() {
         </aside>
 
         {/* Mobile Navigation */}
-        <div className="lg:hidden mb-10 flex flex-wrap gap-3 rtl:flex-row-reverse rtl:justify-center">
+        <div className="lg:hidden mb-10 flex flex-wrap gap-3 ">
             <Button 
                 variant={activeTab === "profile" ? "default" : "outline"} 
                 size="sm" 

@@ -7,12 +7,15 @@ interface CourseMainContentProps {
   course: any;
   t: any;
   tContent: any;
-  tLessonContent: any;
+  tLessonTitle: any;
+  tLessonDescription: any;
   locale: string;
   activeTab: string;
   setActiveTab: (tab: string) => void;
   previewLesson: any;
   setPreviewLesson: (lesson: any) => void;
+  previewExam?: any;
+  setPreviewExam?: (exam: any) => void;
   getEmbedUrl: (url: string) => string;
 }
 
@@ -20,7 +23,8 @@ export function CourseMainContent({
   course,
   t,
   tContent,
-  tLessonContent,
+  tLessonTitle,
+  tLessonDescription,
   locale,
   activeTab,
   setActiveTab,
@@ -107,13 +111,13 @@ export function CourseMainContent({
             {previewLesson ? (
               <div className="space-y-10">
                 <div className="space-y-4 px-2 text-left rtl:text-right">
-                  <div className="flex items-center gap-3 text-primary font-black uppercase tracking-widest text-[10px] rtl:flex-row-reverse">
+                  <div className="flex items-center gap-3 text-primary font-black uppercase tracking-widest text-[10px] ">
                     <div className="px-2 py-0.5 rounded bg-primary/10 border border-primary/20">{t("learningNow")}</div>
                     <span className="text-muted-foreground">{t("lesson")} {(course.lessons?.indexOf(previewLesson) ?? -1) + 1}</span>
                   </div>
                   <h2 className="text-4xl lg:text-5xl font-black text-foreground tracking-tight">
-                    {tLessonContent.has(`${previewLesson._id}.title`)
-                      ? tLessonContent(`${previewLesson._id}.title`)
+                    {tLessonTitle.has(previewLesson.title.replace(/[.\/]/g, ''))
+                      ? tLessonTitle(previewLesson.title.replace(/[.\/]/g, ''))
                       : (locale.startsWith("ar") ? (previewLesson.title_ar || previewLesson.title) : previewLesson.title)}
                   </h2>
                 </div>
@@ -136,13 +140,13 @@ export function CourseMainContent({
                 </div>
 
                 <div className="px-2 text-left rtl:text-right">
-                  <h3 className="text-xl font-black text-foreground uppercase tracking-tight flex items-center gap-3 mb-4 rtl:flex-row-reverse">
+                  <h3 className="text-xl font-black text-foreground uppercase tracking-tight flex items-center gap-3 mb-4">
                     <div className="h-6 w-1 bg-primary rounded-full" />
                     {t("aboutLesson")}
                   </h3>
                   <p className="text-muted-foreground font-medium leading-relaxed text-lg max-w-4xl">
-                    {tLessonContent.has(`${previewLesson._id}.description`)
-                      ? tLessonContent(`${previewLesson._id}.description`)
+                    {tLessonDescription.has(previewLesson.description.replace(/[.\/]/g, ''))
+                      ? tLessonDescription(previewLesson.description.replace(/[.\/]/g, ''))
                       : ((locale.startsWith("ar") ? (previewLesson.description_ar || previewLesson.description) : previewLesson.description) || "In this session, we dive into the module's core objectives and implementation strategies.")}
                   </p>
                 </div>
