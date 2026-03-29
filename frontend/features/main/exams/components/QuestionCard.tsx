@@ -98,12 +98,12 @@ export default function QuestionCard({
         </motion.div>
       </AnimatePresence>
 
-      <div className="flex flex-wrap items-center justify-between pt-12 border-t border-slate-100 dark:border-slate-800 mt-auto transition-colors">
+      <div className="flex flex-wrap items-center gap-y-4 justify-between pt-8 lg:pt-12 border-t border-slate-100 dark:border-slate-800 mt-auto transition-colors">
         <Button
           variant="ghost"
           disabled={currentQuestionIndex === 0}
           onClick={onPrevious}
-          className="flex items-center gap-2 text-slate-400 dark:text-slate-500 font-bold hover:text-primary transition h-12 px-6 rounded-xl cursor-pointer"
+          className="flex items-center justify-center gap-2 text-slate-400 dark:text-slate-500 font-bold hover:text-primary transition h-12 px-6 rounded-xl cursor-pointer w-full md:w-auto order-2 md:order-1"
         >
           <ChevronLeft size={20} /> Previous
         </Button>
@@ -111,7 +111,7 @@ export default function QuestionCard({
         {currentQuestionIndex < totalQuestions - 1 ? (
           <Button
             onClick={onNext}
-            className="bg-primary hover:bg-primary/90 text-white rounded-2xl px-12 h-14 max-md:h-10 max-md:px-10  font-black uppercase tracking-widest text-lg shadow-xl shadow-primary/30 cursor-pointer"
+            className="bg-primary hover:bg-primary/90 text-white rounded-2xl px-12 h-14 max-md:h-12 max-md:px-8 font-black uppercase tracking-widest text-sm lg:text-lg shadow-xl shadow-primary/30 cursor-pointer w-full md:w-auto order-1 md:order-2"
           >
             Next <ChevronRight size={20} />
           </Button>
@@ -119,7 +119,7 @@ export default function QuestionCard({
           <Button
             onClick={handleFinishAttempt}
             disabled={isSubmitting}
-            className="bg-emerald-500 hover:bg-emerald-600 text-white rounded-2xl px-12 h-14 max-md:h-8 max-md:px-8 font-black uppercase tracking-widest text-lg shadow-xl shadow-emerald-500/20 cursor-pointer"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white rounded-2xl px-12 h-14 max-md:h-12 max-md:px-8 font-black uppercase tracking-widest text-sm lg:text-lg shadow-xl shadow-emerald-500/20 cursor-pointer w-full md:w-auto order-1 md:order-2"
           >
             {isSubmitting ? (
               <Loader2 className="animate-spin" />

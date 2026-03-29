@@ -20,8 +20,8 @@ export default function CourseRow({ title, icon, courses }: { title: string; ico
   return (
     <div className="mb-16">
       <motion.div 
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex items-center justify-between mb-8"
@@ -30,7 +30,7 @@ export default function CourseRow({ title, icon, courses }: { title: string; ico
           <div className="h-10 w-10 flex items-center justify-center bg-muted rounded-lg">
             {icon}
           </div>
-          <h3 className="text-2xl font-bold text-foreground">{title}</h3>
+          <h3 className="text-2xl font-bold text-foreground max-md:text-xl">{title}</h3>
         </div>
         <Link href="/courses" className="flex items-center gap-1 text-primary font-bold hover:underline">
           {t("seeAll")} <ChevronRight size={20} className="rtl:rotate-180" />

@@ -44,7 +44,7 @@ export function CourseMobileFilter({
                         <DialogHeader className="mb-6">
                             <DialogTitle className="text-xl font-bold rtl:text-right">{t("categories")}</DialogTitle>
                         </DialogHeader>
-                        <div className="flex flex-col gap-2">
+                        <div className="grid grid-cols-2 gap-3">
                             {filterCategories.map((cat: any) => (
                                 <DialogClose 
                                     key={cat._id} 
@@ -53,16 +53,21 @@ export function CourseMobileFilter({
                                             variant="ghost"
                                             onClick={() => onCategoryChange(cat._id)}
                                             className={cn(
-                                                "flex items-center gap-3 w-full p-6 h-auto rounded-xl transition-all rtl:flex-row-reverse rtl:text-right",
-                                                selectedCategory === cat._id ? "bg-primary/5 text-primary border border-primary/10" : "hover:bg-muted"
+                                                "flex flex-col items-center justify-center gap-3 w-full p-4 h-auto rounded-xl transition-all",
+                                                selectedCategory === cat._id ? "bg-primary/5 text-primary border border-primary/20" : "hover:bg-muted bg-card border border-border"
                                             )}
                                         />
                                     }
                                 >
-                                    <>
-                                        {cat.icon}
-                                        <span className="text-xs font-bold">{cat.name}</span>
-                                    </>
+                                    <div className="flex flex-col items-center gap-2">
+                                        <div className={cn(
+                                            "p-2 rounded-lg",
+                                            selectedCategory === cat._id ? "bg-primary text-white" : "bg-muted text-muted-foreground"
+                                        )}>
+                                            {cat.icon}
+                                        </div>
+                                        <span className="text-[10px] font-bold text-center line-clamp-1">{cat.name}</span>
+                                    </div>
                                 </DialogClose>
                             ))}
                         </div>

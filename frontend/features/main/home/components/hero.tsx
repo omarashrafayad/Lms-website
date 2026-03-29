@@ -17,8 +17,8 @@ export function Hero() {
       <div className="container mx-auto px-6 md:px-12 lg:px-24">
         <div className="flex flex-col items-center lg:flex-row">
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? 80 : -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.0, ease: "easeOut", delay: 0.2 }}
             className="z-10 w-full space-y-8 lg:w-1/2 rtl:text-right text-left"
@@ -43,8 +43,8 @@ export function Hero() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? -80 : 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
             className="relative mt-16 w-full lg:mt-0 lg:w-1/2"
@@ -59,7 +59,7 @@ export function Hero() {
                 />
               </div>
 
-              <div className="absolute -left-8 top-1/4 animate-bounce rounded-2xl bg-white/90 p-4 shadow-2xl backdrop-blur-md md:-left-12 rtl:left-auto rtl:-right-8 rtl:md:-right-12">
+              <div className="absolute -left-8 2 top-1/4 animate-bounce rounded-2xl bg-white/90 p-4 shadow-2xl backdrop-blur-md md:-left-12 max-md:-left-5">
                 <div className="flex items-center space-x-3 rtl:space-x-reverse text-slate-900">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20">
                     <Calendar className="text-primary" size={20} />
@@ -71,7 +71,7 @@ export function Hero() {
                 </div>
               </div>
 
-              <div className="absolute -right-8 top-1/2 animate-pulse rounded-2xl bg-white/90 p-4 shadow-2xl backdrop-blur-md md:-right-12 rtl:right-auto rtl:-left-8 rtl:md:-left-12">
+              <div className="absolute max-md:hidden -right-8 top-1/2 animate-pulse rounded-2xl bg-white/90 p-4 shadow-2xl backdrop-blur-md md:-right-12 rtl:right-auto ">
                 <div className="flex items-center space-x-3 rtl:space-x-reverse text-slate-900">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-400/20">
                     <Mail className="text-orange-400" size={20} />

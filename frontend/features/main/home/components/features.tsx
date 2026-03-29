@@ -44,8 +44,8 @@ export function Features() {
 
         <div className="flex flex-col lg:flex-row items-center gap-16 mb-32 rtl:lg:flex-row-reverse">
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
             className="relative w-full lg:w-3/5"
@@ -62,8 +62,8 @@ export function Features() {
             <div className="absolute -bottom-5 -right-5 rtl:right-auto rtl:-left-5 h-20 w-20 bg-blue-500 rounded-full -z-10 opacity-30"></div>
           </motion.div>
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
             className="w-full lg:w-2/5 space-y-6"
@@ -88,8 +88,8 @@ export function Features() {
 
         <div className="flex flex-col lg:flex-row-reverse items-center gap-16 mb-32 rtl:lg:flex-row">
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
             className="relative w-full lg:w-1/2"
@@ -106,8 +106,8 @@ export function Features() {
             <div className="absolute bottom-4 right-12 rtl:right-auto rtl:left-12 h-6 w-6 bg-orange-400 rounded-full"></div>
           </motion.div>
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full lg:w-1/2 space-y-6"
@@ -124,8 +124,8 @@ export function Features() {
         </div>
         <div className="flex flex-col lg:flex-row items-center gap-16 mb-32 rtl:lg:flex-row-reverse">
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
             className="relative w-full lg:w-1/2"
@@ -141,8 +141,8 @@ export function Features() {
             <div className="absolute -top-6 -right-6 rtl:right-auto rtl:-left-6 h-12 w-12 bg-pink-400 rounded-full flex items-center justify-center text-white font-bold shadow-lg">Q1</div>
           </motion.div>
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
             className="w-full lg:w-1/2 space-y-6"
@@ -160,8 +160,8 @@ export function Features() {
 
         <div className="flex flex-col lg:flex-row-reverse items-center gap-16 mb-32 rtl:lg:flex-row">
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
             className="relative w-full lg:w-1/2"
@@ -177,8 +177,8 @@ export function Features() {
             <div className="absolute -left-10 rtl:left-auto rtl:-right-10 bottom-1/4 h-32 w-32 bg-blue-400/20 rounded-full blur-2xl"></div>
           </motion.div>
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
             className="w-full lg:w-1/2 space-y-6"
@@ -195,8 +195,8 @@ export function Features() {
         </div>
         <div className="flex flex-col lg:flex-row items-center gap-16 rtl:lg:flex-row-reverse">
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
             className="relative w-full lg:w-1/2"
@@ -211,8 +211,8 @@ export function Features() {
             </div>
           </motion.div>
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
             className="w-full lg:w-1/2 space-y-6"

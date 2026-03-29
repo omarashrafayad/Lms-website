@@ -29,8 +29,8 @@ export function WhatIsTOTC() {
 
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
             className="relative h-[400px] overflow-hidden rounded-3xl group"
@@ -50,8 +50,8 @@ export function WhatIsTOTC() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, x: locale === "ar" ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
             className="relative h-[400px] overflow-hidden rounded-3xl group"

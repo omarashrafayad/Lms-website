@@ -32,13 +32,13 @@ export function CourseMainContent({
     <div className="flex-1 space-y-12">
       <div className="bg-card rounded-[2.5rem] p-8 lg:p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] border border-border">
         {/* Custom Tabs Navigation */}
-        <div className="flex items-center border-b border-border mb-10 overflow-x-auto no-scrollbar">
+        <div className="flex  items-center  border-border mb-10 overflow-x-auto no-scrollbar">
           {["Overview", "Lessons"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={cn(
-                "px-8 py-5 font-black text-sm uppercase tracking-widest relative transition-all whitespace-nowrap cursor-pointer",
+                "px-8 py-5 font-black text-sm max-md:text-xs uppercase tracking-widest relative transition-all whitespace-nowrap cursor-pointer",
                 activeTab === tab ? "text-primary" : "text-muted-foreground hover:text-foreground"
               )}
             >
@@ -98,75 +98,6 @@ export function CourseMainContent({
                       <span className="text-xs font-bold text-white/40 w-10 text-right rtl:text-left">{num === 5 ? '85%' : num === 4 ? '12%' : '1%'}</span>
                     </div>
                   ))}
-                </div>
-              </div>
-
-              {/* Course Curriculum */}
-              <div className="mt-16 space-y-8 pt-10 border-t border-white/10">
-                <h3 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-3">
-                  <div className="h-6 w-1 bg-primary rounded-full" />
-                  {t("curriculum")}
-                </h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {course.lessons && course.lessons.length > 0 ? (
-                    [...course.lessons].sort((a: any, b: any) => (a.order || 0) - (b.order || 0)).map((lesson: any, i: number) => (
-                      <div
-                        key={i}
-                        onClick={() => {
-                          setPreviewLesson(lesson);
-                          setActiveTab("Lessons");
-                        }}
-                        className={cn(
-                          "group flex flex-col md:flex-row items-center justify-between p-6 rounded-[2.5rem] border transition-all duration-500 cursor-pointer",
-                          previewLesson?._id === lesson._id
-                            ? "bg-white border-transparent shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] scale-[1.02]"
-                            : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20"
-                        )}
-                      >
-                        <div className="flex items-center gap-6 w-full ">
-                          <div className={cn(
-                            "h-14 w-14 rounded-full shadow-sm flex items-center justify-center shrink-0 font-black transition-all duration-500",
-                            previewLesson?._id === lesson._id
-                              ? "bg-primary text-white scale-110 shadow-lg shadow-primary/30"
-                              : "bg-white/10 text-white border border-white/10 group-hover:bg-primary group-hover:text-white"
-                          )}>
-                            {i + 1}
-                          </div>
-                          <div className="space-y-1.5 text-left rtl:text-right flex-1">
-                            <h4 className={cn(
-                              "font-black text-lg transition-colors duration-300",
-                              previewLesson?._id === lesson._id ? "text-slate-900" : "text-white"
-                            )}>
-                                {tLessonContent.has(`${lesson._id}.title`)
-                                  ? tLessonContent(`${lesson._id}.title`)
-                                  : (locale.startsWith("ar") ? (lesson.title_ar || lesson.title) : lesson.title)}
-                              </h4>
-                            <div className="flex items-center gap-5 text-[10px] font-bold uppercase tracking-[0.2em] ">
-                              <span className={cn(
-                                "flex items-center gap-2 transition-colors",
-                                previewLesson?._id === lesson._id ? "text-primary" : "text-white/40"
-                              )}>
-                                <PlayCircle size={14} className={cn(previewLesson?._id === lesson._id ? "fill-primary/10" : "opacity-40")} />
-                                {t("video")}
-                              </span>
-                              <span className={cn(
-                                "flex items-center gap-2 transition-colors",
-                                previewLesson?._id === lesson._id ? "text-primary/70" : "text-white/40"
-                              )}>
-                                <Clock size={14} className="opacity-40" />
-                                {lesson.duration || '5:00'}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="text-center py-20 bg-white/5 rounded-[3rem] border-2 border-dashed border-white/10">
-                      <Book className="size-16 text-white/20 mx-auto mb-4" />
-                      <p className="text-white/40 font-bold uppercase tracking-widest">{t("noLessons")}</p>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>

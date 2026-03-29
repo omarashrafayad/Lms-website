@@ -171,7 +171,7 @@ export default function ChatPage() {
                       </Avatar>
                     </div>
                     <div className="text-left rtl:text-right">
-                      <h3 className="text-xl font-bold text-foreground tracking-tight leading-none mb-2">{activeRecipient.name}</h3>
+                      <h3 className="text-xl font-bold text-foreground tracking-tight leading-none mb-2 max-[430px]:text-sm">{activeRecipient.name}</h3>
                       <div className="flex items-center gap-2 rtl:flex-row-reverse">
                         <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{rT(activeRecipient.role.toLowerCase() as any)}</span>
                       </div>
@@ -198,25 +198,25 @@ export default function ChatPage() {
               </>
             ) : (
               <div className="flex-1 flex flex-col items-center justify-center p-12 lg:p-24 text-center space-y-8 bg-muted/10">
-                <div className="relative h-64 w-64 lg:h-80 lg:w-80 flex items-center justify-center drop-shadow-2xl">
+                <div className="relative h-50 w-50 max-[430px]:h-40 max-[430px]:w-40 flex items-center justify-center drop-shadow-2xl">
                   <div className="absolute inset-0 bg-primary/10 rounded-[4rem] rotate-6 animate-pulse" />
-                  <div className="absolute inset-0 bg-card rounded-[4rem] group hover:-rotate-3 transition-transform duration-700 p-12">
+                  <div className="absolute inset-0 bg-card rounded-[4rem] group hover:-rotate-3 transition-transform duration-700 p-6">
                     <div className="h-full w-full rounded-[3rem] bg-primary/5 flex flex-col items-center justify-center space-y-6">
-                      <Users className="text-primary/20 h-20 w-20" />
+                      <Users className="text-primary/20 h-20 w-20 " />
                       <div className="w-px h-12 bg-primary/10" />
-                      <MessageSquare className="text-primary h-12 w-12" />
+                      <MessageSquare className="text-primary h-12 w-12 " />
                     </div>
                   </div>
                 </div>
                 <div className="max-w-md space-y-6">
-                  <h2 className="text-3xl lg:text-4xl font-black text-foreground tracking-tighter uppercase">{t("welcome")}</h2>
-                  <p className="text-muted-foreground font-medium leading-relaxed">
+                  <h2 className="text-4xl lg:text-3xl max-md:text-2xl max-[430px]:text-md font-black text-foreground tracking-tighter uppercase">{t("welcome")}</h2>
+                  <p className="text-muted-foreground font-medium leading-relaxed line-clamp-2">
                     {!currentUser ? t("mustLogin") : t("welcomeDesc")}
                   </p>
                   {currentUser && (
                     <Button
                       onClick={() => setIsStartingNewChat(true)}
-                      className="bg-primary hover:bg-primary/90 text-white rounded-2xl px-12 h-16 font-black uppercase tracking-widest text-lg shadow-xl shadow-primary/30 cursor-pointer"
+                      className="bg-primary hover:bg-primary/90 text-white rounded-2xl px-12 h-16 max-[580px]:h-12 max-[430px]:px-8 max-[430px]:text-sm font-black uppercase tracking-widest text-lg shadow-xl shadow-primary/30 cursor-pointer"
                     >
                       {t("findMentor")}
                     </Button>

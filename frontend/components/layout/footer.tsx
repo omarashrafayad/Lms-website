@@ -30,11 +30,11 @@ export function Footer() {
             {t("subscribeTitle")}
           </h3>
 
-          <div className="flex w-full max-w-lg items-center gap-4 bg-transparent border border-slate-700 rounded-full p-1 pl-6 rtl:pl-1 rtl:pr-6">
+          <div className="flex w-full max-w-lg items-center gap-4 max-md:gap-0 bg-transparent border border-slate-700 rounded-full p-1 pl-2">
             <input
               type="email"
               placeholder={t("emailPlaceholder")}
-              className="bg-transparent border-none outline-none flex-1 text-white placeholder:text-slate-500 text-sm rtl:text-right"
+              className="bg-transparent border-none outline-none flex-1 text-white placeholder:text-slate-500 text-sm"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               

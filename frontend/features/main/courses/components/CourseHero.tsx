@@ -27,13 +27,12 @@ export function CourseHero({ course, t, tContent, locale }: CourseHeroProps) {
             <span className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest text-white/90 border border-white/10">
               {t(course.level?.toLowerCase() || "beginner")}
             </span>
-            <div className="h-1 w-1 rounded-full bg-white/30" />
             <span className="text-white/70 text-sm font-bold">
               {t("updated")} {new Date(course.updatedAt).toLocaleDateString(locale.startsWith("ar") ? "ar-EG" : "en-US", { month: "short", year: "numeric" })}
             </span>
           </div>
 
-          <h1 className="text-4xl lg:text-7xl font-black leading-tight tracking-tight uppercase">
+          <h1 className="text-4xl lg:text-7xl font-black leading-tight tracking-tight uppercase max-md:text-2xl ">
             {tContent.has(`${course._id}.title`)
               ? tContent(`${course._id}.title`)
               : (locale.startsWith("ar") ? (course.title_ar || course.title) : course.title)}
@@ -49,8 +48,8 @@ export function CourseHero({ course, t, tContent, locale }: CourseHeroProps) {
               <span className="font-bold text-lg">{course.ratingsAverage || 5} <span className="text-white/50 text-sm font-medium">({course.ratingsQuantity || 0} {t("reviews")})</span></span>
             </div>
             <div className="h-6 w-[1px] bg-white/20 hidden sm:block" />
-            <div className="flex items-center gap-3 rtl:flex-row-reverse">
-              <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">
+            <div className="flex items-center gap-3 max-[390px]:mb-5 ">
+              <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center ">
                 <Users size={18} className="text-white" />
               </div>
               <span className="font-bold text-lg">
