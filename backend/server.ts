@@ -42,18 +42,9 @@ app.use(async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
-// app.use(cors());
-// app.options(/.*/, cors());
+app.use(cors());
+app.options(/.*/, cors());
 
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true,
-}));
-
-app.options(/.*/, cors({
-  origin: "http://localhost:3000",
-  credentials: true,
-}));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'uploads')));
