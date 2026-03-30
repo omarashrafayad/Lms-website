@@ -132,7 +132,12 @@
     "cancel": "Cancel",
     "searchPeople": "Search people...",
     "connect": "Connect with mentors",
-    "mustLogin": "You must login first to start chatting"
+    "mustLogin": "You must login first to start chatting",
+    "joinCommunity": "Join our community of learners and mentors to start your journey today.",
+    "loginNow": "Login Now",
+    "noSelect": "You haven't selected a chat yet",
+    "sent": "Sent",
+    "startConversation": "Start a conversation to share knowledge."
   },
   "roles": {
     "instructor": "Instructor",

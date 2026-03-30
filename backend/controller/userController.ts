@@ -9,6 +9,7 @@ import bcrypt from 'bcryptjs';
 import createToken from '../utils/createToken';
 import { uploadSingleImage } from '../middlewares/uploadImageMiddleware';
 import crypto from 'crypto';
+import path from 'path';
 
 
 export const uploadUserImage = uploadSingleImage('profileImg');
@@ -25,7 +26,7 @@ export const resizeUserImage = asyncHandler(
             .resize(600, 600)
             .toFormat('jpeg')
             .jpeg({ quality: 95 })
-            .toFile(`uploads/users/${filename}`);
+            .toFile(path.join(__dirname, '..', 'uploads', 'users', filename));
 
         req.body.profileImg = filename;
 

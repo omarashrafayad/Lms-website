@@ -9,10 +9,11 @@ import ChatThread from "../components/ChatThread";
 import UserPicker from "../components/UserPicker";
 import ChatInput from "../components/ChatInput";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { cn } from "@/lib/utils";
 import { useTranslations, useLocale } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 export default function ChatPage() {
   const t = useTranslations("chat");
@@ -77,16 +78,45 @@ export default function ChatPage() {
   return (
     <div className="bg-muted/30 min-h-screen py-12 lg:py-24">
       <div className="container mx-auto px-6 lg:px-24">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row h-[800px] bg-card rounded-[3.5rem] shadow-2xl border border-border overflow-hidden relative rtl:flex-row-reverse">
+        <div className={cn(
+          "max-w-6xl mx-auto flex flex-col lg:flex-row h-auto lg:h-[800px] bg-card rounded-[3.5rem] shadow-2xl border border-border overflow-hidden relative",
+          !currentUser ? "items-center justify-center py-20" : ""
+        )}>
 
-          {/* Sidebar */}
-          <div className={cn(
-            "w-full lg:w-[380px] border-r border-border flex flex-col bg-card transition-all duration-500 rtl:border-r-0 rtl:border-l",
-            selectedConvId || activeRecipient ? "hidden lg:flex" : "flex"
-          )}>
-            <div className="p-8 lg:p-10 border-b border-border bg-card/80 backdrop-blur-md sticky top-0 z-10 space-y-8">
-              <div className="flex items-center justify-between rtl:flex-row-reverse">
-                <div className="space-y-1 text-left rtl:text-right">
+          {!currentUser ? (
+            <div className="flex flex-col items-center justify-center py-20 text-center space-y-8 px-10 max-w-sm">
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-2xl animate-pulse" />
+                <div className="relative h-20 w-20 rounded-3xl bg-primary/10 flex items-center justify-center border border-primary/20">
+                  <Users className="text-primary" size={32} />
+                </div>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-2xl font-black uppercase tracking-tighter">{t("mustLogin")}</h3>
+                <p className="text-muted-foreground text-sm font-medium leading-relaxed">
+                  {t("joinCommunity")}
+                </p>
+              </div>
+              <Link 
+                href="/auth" 
+                className={cn(
+                  buttonVariants({ variant: 'default' }), 
+                  "h-14 px-12 rounded-2xl text-white font-black uppercase tracking-widest shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                )}
+              >
+                {t("loginNow")}
+              </Link>
+            </div>
+          ) : (
+            <>
+              {/* Sidebar */}
+              <div className={cn(
+                "w-full lg:w-[380px] h-[500px] lg:h-full border-b lg:border-b-0 lg:border-r border-border flex flex-col bg-card transition-all duration-500  ",
+                selectedConvId || activeRecipient ? "hidden lg:flex" : "flex"
+              )}>
+            <div className="p-8 lg:p-10 border-b border-border bg-card sticky top-0 z-10 space-y-8 h-[120px] lg:h-[150px] flex flex-col justify-center">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1 text-left ">
                   <h1 className="text-3xl font-black text-foreground tracking-tighter">{t("messages").toUpperCase()}</h1>
                   <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none">{t("connect")}</p>
                 </div>
@@ -102,19 +132,10 @@ export default function ChatPage() {
             </div>
 
             <div className="flex-1 overflow-y-auto p-4 lg:p-6 custom-scrollbar space-y-8">
-              {!currentUser ? (
-                <div className="flex flex-col items-center justify-center py-20 text-center space-y-4 px-10">
-                  <div className="h-12 w-12 rounded-2xl bg-muted flex items-center justify-center">
-                    <Search className="text-muted-foreground/30" size={24} />
-                  </div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest leading-relaxed">
-                    {t("mustLogin")}
-                  </p>
-                </div>
-              ) : isStartingNewChat ? (
+              {isStartingNewChat ? (
                 <div className="space-y-6">
-                  <div className="flex items-center justify-between px-4 rtl:flex-row-reverse">
-                    <p className="text-[10px] font-black text-primary uppercase tracking-widest rtl:text-right">
+                  <div className="flex items-center justify-between px-4 ">
+                    <p className="text-[10px] font-black text-primary uppercase tracking-widest">
                       {t("available")} {currentUser?.role === 'student' ? rT('instructor') : rT('student')}
                     </p>
                     <button onClick={() => setIsStartingNewChat(false)} className="text-[10px] font-bold text-muted-foreground uppercase hover:text-foreground transition">{t("cancel")}</button>
@@ -147,12 +168,12 @@ export default function ChatPage() {
           </div>
 
           {/* Chat Main Area */}
-          <div className="flex-1 flex flex-col bg-card relative">
+          <div className="flex-1 flex flex-col bg-card relative min-w-0">
             {activeRecipient ? (
               <>
                 {/* Header */}
-                <div className="p-6 lg:p-8 border-b border-border flex items-center justify-between bg-card relative z-20 shadow-sm border-2 rtl:flex-row-reverse">
-                  <div className="flex items-center gap-6 rtl:flex-row-reverse">
+                <div className="p-8 lg:p-10 border-b border-border flex items-center justify-between bg-card relative z-20 h-[120px] lg:h-[150px] ">
+                  <div className="flex items-center gap-6 ">
                     <button
                       onClick={() => {
                         setSelectedConvId(null);
@@ -197,34 +218,18 @@ export default function ChatPage() {
                 />
               </>
             ) : (
-              <div className="flex-1 flex flex-col items-center justify-center p-12 lg:p-24 text-center space-y-8 bg-muted/10">
-                <div className="relative h-50 w-50 max-[430px]:h-40 max-[430px]:w-40 flex items-center justify-center drop-shadow-2xl">
-                  <div className="absolute inset-0 bg-primary/10 rounded-[4rem] rotate-6 animate-pulse" />
-                  <div className="absolute inset-0 bg-card rounded-[4rem] group hover:-rotate-3 transition-transform duration-700 p-6">
-                    <div className="h-full w-full rounded-[3rem] bg-primary/5 flex flex-col items-center justify-center space-y-6">
-                      <Users className="text-primary/20 h-20 w-20 " />
-                      <div className="w-px h-12 bg-primary/10" />
-                      <MessageSquare className="text-primary h-12 w-12 " />
-                    </div>
-                  </div>
+              <div className="flex-1 flex flex-col items-center justify-center p-12 text-center space-y-4">
+                <div className="h-16 w-16 rounded-3xl bg-primary/5 flex items-center justify-center text-primary/20">
+                  <MessageSquare size={32} />
                 </div>
-                <div className="max-w-md space-y-6">
-                  <h2 className="text-4xl lg:text-3xl max-md:text-2xl max-[430px]:text-md font-black text-foreground tracking-tighter uppercase">{t("welcome")}</h2>
-                  <p className="text-muted-foreground font-medium leading-relaxed line-clamp-2">
-                    {!currentUser ? t("mustLogin") : t("welcomeDesc")}
-                  </p>
-                  {currentUser && (
-                    <Button
-                      onClick={() => setIsStartingNewChat(true)}
-                      className="bg-primary hover:bg-primary/90 text-white rounded-2xl px-12 h-16 max-[580px]:h-12 max-[430px]:px-8 max-[430px]:text-sm font-black uppercase tracking-widest text-lg shadow-xl shadow-primary/30 cursor-pointer"
-                    >
-                      {t("findMentor")}
-                    </Button>
-                  )}
-                </div>
+                <p className="text-sm font-black text-muted-foreground uppercase tracking-widest">
+                   {t("noSelect")}
+                </p>
               </div>
             )}
-          </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

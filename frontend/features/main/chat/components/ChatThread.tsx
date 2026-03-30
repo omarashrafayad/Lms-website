@@ -1,5 +1,6 @@
 "use client";
 
+import { MessageSquare } from "lucide-react";
 import { IMessage } from "../types/chat.types";
 import { format } from "date-fns";
 import { arSA } from "date-fns/locale";
@@ -32,11 +33,18 @@ export default function ChatThread({ messages, isLoading }: ChatThreadProps) {
   const getTimeLocale = () => (locale === "ar" ? arSA : undefined);
 
   return (
-    <div className="flex flex-col gap-6 p-6 overflow-y-auto max-h-[calc(100vh-350px)] lg:max-h-[calc(100vh-300px)] custom-scrollbar">
+    <div className="flex flex-col gap-8 p-3 overflow-y-auto max-h-[calc(100vh-350px)] lg:max-h-[calc(100vh-300px)] custom-scrollbar bg-muted/5">
       {messages.length === 0 && !isLoading && (
-        <div className="flex flex-col items-center justify-center py-20 text-muted-foreground space-y-4">
-          <p className="font-bold">{t("sayHello")}</p>
-          <div className="w-px h-10 bg-border" />
+        <div className="flex flex-col items-center justify-center py-32 text-center space-y-6">
+          <div className="h-24 w-24 rounded-[3rem] bg-card border border-border shadow-2xl flex items-center justify-center">
+            <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+              <MessageSquare size={24} />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <p className="font-black text-xl uppercase tracking-tighter">{t("sayHello")}</p>
+            <p className="text-muted-foreground text-sm font-medium">{t("startConversation")}</p>
+          </div>
         </div>
       )}
 
@@ -45,29 +53,33 @@ export default function ChatThread({ messages, isLoading }: ChatThreadProps) {
         const showAvatar = i === 0 || messages[i - 1].sender._id !== msg.sender._id;
 
         return (
-          <div key={msg._id} className={cn("flex items-end gap-3", isMe ? "flex-row-reverse" : "flex-row")}>
-            <div className={cn("h-8 w-8", !showAvatar && "invisible")}>
-              <Avatar className="h-full w-full">
-                <AvatarImage src={msg.sender.profileImg} />
-                <AvatarFallback className="bg-primary/5 text-[10px] text-primary">
+          <div key={msg._id} className={cn("flex gap-4 group", isMe ? "flex-row-reverse" : "flex-row")}>
+            <div className={cn("h-10 w-10 shrink-0 self-end mb-2", !showAvatar && "invisible")}>
+              <Avatar className="h-full w-full border-2 border-card shadow-lg">
+                <AvatarImage src={msg.sender.profileImg} className="object-cover" />
+                <AvatarFallback className="bg-primary/5 text-[10px] font-black text-primary uppercase">
                   {msg.sender.name.charAt(0)}
                 </AvatarFallback>
               </Avatar>
             </div>
 
-            <div className={cn("max-w-[70%] space-y-1 fadeIn flex flex-col", isMe ? "items-end" : "items-start")}>
+            <div className={cn("max-w-[75%] space-y-2 fadeIn flex flex-col", isMe ? "items-end" : "items-start")}>
               <div className={cn(
-                "px-5 py-3 rounded-[1.5rem] text-sm font-medium leading-relaxed drop-shadow-sm transition-all",
+                "px-4 py-2 rounded-[2rem] text-sm font-bold leading-relaxed shadow-sm transition-all duration-300 hover:shadow-md",
                 isMe
-                  ? "bg-primary text-white rounded-br-none hover:bg-primary/95 shadow-lg shadow-primary/20"
-                  : "bg-card text-foreground rounded-bl-none border border-border shadow-sm rtl:rounded-bl-[1.5rem] rtl:rounded-br-none"
+                  ? "bg-primary text-white rounded-br-none shadow-primary/20 hover:bg-primary/95"
+                  : "bg-card text-foreground rounded-bl-none border border-border hover:border-primary/10"
               )}>
                 {msg.content}
               </div>
-              <div className="flex items-center gap-2 px-2">
-                <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest leading-none">
+              <div className={cn(
+                "flex items-center gap-2 px-3 transition-opacity duration-300",
+                "opacity-40 group-hover:opacity-100"
+              )}>
+                <span className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em] leading-none">
                   {format(new Date(msg.createdAt), "HH:mm", { locale: getTimeLocale() })}
                 </span>
+                {isMe && <span className="text-[9px] font-black text-primary uppercase tracking-widest leading-none">• {t("sent")}</span>}
               </div>
             </div>
           </div>
